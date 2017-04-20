@@ -1,0 +1,144 @@
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #d1d1d1;
+}
+
+.ellipse-button{
+    border: none;
+    box-shadow: 1px 1px 7px #9b9b9b;
+    background-color: #eeeeee;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    border-radius: 100px;
+}
+
+.material-icons{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#greeting{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font: normal 10em 'Pacifico';
+    color: white;
+    position: absolute;
+    text-align: center;
+    margin-top: 60px;
+    left: 0;
+    right: 0;
+}
+
+#date{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute;
+    font: normal 30px 'Roboto Condensed';
+    text-align: center;
+    color: #808080;
+    margin: auto;
+    margin-top: 600px;
+    left: 0;
+    right: 0;
+}
+
+#time{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    position: absolute;
+    user-select: none;
+    font: normal 30px 'Roboto Condensed';
+    text-align: center;
+    color: #808080;
+    margin: auto;
+    margin-top: 650px;
+    left: 0;
+    right: 0;
+}
+
+#task-input{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: "Sue Ellen Francisco";
+    font-size: 2em;
+    text-indent: 1em;
+    border: 4px solid white;
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-top: 350px;
+}
+
+#task-input:focus{
+        outline: none;
+}
+
+#task-input:focus::-webkit-input-placeholder {  
+    color: grey;
+}
+
+#task-input::-webkit-input-placeholder{
+    color: transparent;
+}
+
+#task-list{
+    visibility:hidden;
+    left: 0;
+    right: 0;
+    margin-top: 350px;
+    position: absolute;
+    color: grey;
+}
+
+.task-list-items{
+    
+
+    background-color: transparent;
+    width: 500px;
+    height: 44px;
+    margin: 2px auto;
+    font: 30px 'Sue Ellen Francisco';
+    text-align: center;
+    left: 0;
+    right: 0;
+    color: black;
+}
+
+#num-of-tasks{
+    color: white;
+    position: absolute;
+    margin-top: 374px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font: normal 30px 'Roboto Condensed';
+}
+
+#checkbox-holder{
+    margin-top: 360px;
+    position: absolute;
+    margin-left: 1000px;
+    width: 24px;
+}
+
+#checkbox{
+    margin: 10px;
+}

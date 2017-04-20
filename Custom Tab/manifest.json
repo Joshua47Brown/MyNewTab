@@ -1,0 +1,15 @@
+{
+  "chrome_url_overrides": {
+    "newtab": "customtab.html"
+  },
+  "description": "A custom new tab.",
+  "manifest_version": 2,
+  "name": "New Tab Test",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "bookmarks",
+    "storage"
+  ],
+  "version": "1.0"
+}
