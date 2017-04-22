@@ -16,16 +16,19 @@ $(document).ready(function(){
         cleanArray = d.value;
         for (var items in cleanArray) {
             $("#task-list").append("<p class='task-list-items'>" + cleanArray[items] + "</p>"); // Appends tasks from chrome storage.
+
         }
-        //console.log(d.value.length);
+
         if (taskArray == null) {
             console.log("Its null :c");
             taskArray = [];
-            //$("#num-of-tasks").html("Number of tasks: " + taskArray.length); // Displays 0.
+
         }
         else {
             console.log("appended?");
             $("#num-of-tasks").html(taskArray.length);
+            $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>");
+           
         }
 
 
@@ -52,24 +55,29 @@ $(document).ready(function(){
         GetTimes();
     }, 60 * 1000);
 
-    // Click Events:
-    $(document).click(function(s){
+     // Click Events:
+    $("#cancel-input").click(function(s){
         $taskInput.animate({ height: ellipseButtonSize, width: ellipseButtonSize, marginTop: "350px" }, "fast");
         $numOfTasks.fadeIn("fast");
         $("#task-list").css('visibility', 'hidden');
+        $("#cancel-input").hide();
     });
 
     $taskInput.click(function(s) {
         s.stopPropagation();
-        $taskInput.animate({ height: "50px", width: "800px", marginTop: "-=70px" }, "fast");
+        $taskInput.animate({ height: "50px", width: "800px", marginTop: "280px" }, "fast");
         $numOfTasks.hide();
         $("#task-list").css('visibility', 'visible');
+        $("#cancel-input").show();
     });
 
     $date.click(function(e) {
         chrome.storage.sync.clear();
     });
 
+    $('#task-list').on('click', '#checkbox', function(s) {
+        $(this).html("<i class='material-icons'>check_box</i>")
+    });
 
     $taskInput.bind('keypress', function(e) { // So the user can submit tasks by pressing enter.
         if (e.keyCode == 13) {
@@ -77,7 +85,7 @@ $(document).ready(function(){
             if (taskArray == null) { taskArray = []; } // For a new user or a user without previous chrome storage of taskArray. 
             taskArray.push(i);
             $("#task-list").append("<p class='task-list-items'>" + i + "</p>"); // Adds new items to the task list, however this line does not sync it with chrome storage.
-            $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>");
+            $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); //! Works, checkbox position is fixed but slighly too far up.      
             $taskInput.val('');
             $("#num-of-tasks").html(taskArray.length)
             chrome.storage.sync.set({ 'value': taskArray })           
