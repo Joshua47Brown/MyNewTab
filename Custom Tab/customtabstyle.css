@@ -1,33 +1,15 @@
 body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     margin: 0 !important;
     padding: 0 !important;
     background-color: #d1d1d1;
 }
 
-.ellipse-button{
-    border: none;
-    box-shadow: 1px 1px 7px #9b9b9b;
-    background-color: #eeeeee;
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    border-radius: 100px;
-}
-
-.material-icons{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 #greeting{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     font: normal 10em 'Pacifico';
     color: white;
     position: absolute;
@@ -38,11 +20,6 @@ body{
 }
 
 #date{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     position: absolute;
     font: normal 30px 'Roboto Condensed';
     text-align: center;
@@ -54,12 +31,7 @@ body{
 }
 
 #time{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     position: absolute;
-    user-select: none;
     font: normal 30px 'Roboto Condensed';
     text-align: center;
     color: #808080;
@@ -70,11 +42,11 @@ body{
 }
 
 #task-input{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    /*transition: all 0.4s ease;*/
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    border-radius: 100px;
     cursor: pointer;
     font-family: "Sue Ellen Francisco";
     font-size: 2em;
@@ -89,8 +61,15 @@ body{
 }
 
 #task-input:focus{
+    width: 80px;
     cursor: text;
     outline: none;
+}
+
+#task-input:hover{
+    /*-webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);*/
 }
 
 #task-input:focus::-webkit-input-placeholder {  
@@ -111,12 +90,11 @@ body{
 }
 
 .task-list-items{
-    
-    width: 500px;
     background-color: transparent;
     /*border: 2px solid white;
-    border-radius: 100px;
+    border-radius: 100px; // Gives each item a similiar look to the task input button.
     text-indent: 30px;*/
+    width: 500px;
     height: 44px;
     margin: 2px auto;
     font: 30px 'Sue Ellen Francisco';
@@ -148,8 +126,8 @@ body{
     cursor: pointer;
     display: none;
     z-index: 3;
-   position: absolute;
-   top: 300px;
-   left: 72%;
-   color: white;
+    position: absolute;
+    top: 300px;
+    left: 72%;
+    color: white;
 }
