@@ -1,5 +1,4 @@
-$(document).ready(function(){
-
+$(document).ready(function($){
     var taskArray;
     var ellipseButtonSize = "70px";
     var $greeting = $("#greeting");
@@ -29,7 +28,7 @@ $(document).ready(function(){
         taskArray = taskArray.filter(Boolean);
         console.log(taskArray.length);
         $numOfTasks.html(taskArray.length);
-        $taskInput.css('transform', 'all 0.4s ease');
+        $numOfTasks.css('visibility', 'visible');
         $taskInput.animate({ height: ellipseButtonSize, width: ellipseButtonSize, marginTop: "350px" }, 'fast');
         $numOfTasks.fadeIn('fast');
         $taskList.css('visibility', 'hidden');
@@ -40,9 +39,15 @@ $(document).ready(function(){
         s.stopPropagation();
         $taskInput.css('transform', 'none');
         $taskInput.animate({ height: "50px", width: "800px", marginTop: "280px" }, "fast");
-        $numOfTasks.hide();
+        $numOfTasks.css('visibility', 'hidden');
         $taskList.css('visibility', 'visible');
         $cancelInput.show();
+    });
+
+    $taskInput.hover(function() {
+        $numOfTasks.hide().html("<i id='add' class='material-icons'>add</i>").fadeIn('slow');      
+    }, function() {
+        $numOfTasks.hide().html(taskArray.length).fadeIn('slow');
     });
 
     $date.click(function(e) {
@@ -50,7 +55,8 @@ $(document).ready(function(){
     });
 
     $taskList.on('click', '#checkbox', function(s) {
-        $(this).html("<i class='material-icons'>check_box</i>") // Changes the icon to ticked.
+        //$(this).html("<i class='material-icons'>check_box</i>") // Changes the icon to ticked.
+        $(this).hide().html("<i class='material-icons'>check_box</i>").fadeIn('slow');
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
         console.log(itemIndex);
         console.log("the item index is: " + taskArray[itemIndex]);
