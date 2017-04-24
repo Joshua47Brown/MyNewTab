@@ -1,9 +1,6 @@
 $(document).ready(function(){
 
-    //chrome.storage.sync.clear(); // For testing.
-
     var taskArray;
-
     var ellipseButtonSize = "70px";
     var $greeting = $("#greeting");
     var $taskInput = $("#task-input");
@@ -13,28 +10,25 @@ $(document).ready(function(){
     var $taskList = $("#task-list");
     var $cancelInput = $("#cancel-input");
 
-    chrome.storage.sync.get('value', function(d){ 
-        taskArray = d.value;
+    chrome.storage.sync.get('value', function(c) {
+        taskArray = c.value;
         taskArrayChecker = taskArray;
-        for (var items in taskArray) { 
-            //if (taskArray[items] != null) {
-                $taskList.append("<p class='task-list-items'>" + taskArray[items] + "</p>"); // Appends tasks from chrome storage.
-            //}    
+        if (taskArray == null) { taskArray = []; }
+        taskArray = taskArray.filter(Boolean);
+        for (var items in taskArray) {
+            $taskList.append("<p class='task-list-items'>" + taskArray[items] + "</p>"); // Appends tasks from chrome storage.  
         }
-
-        if (taskArray == null){
-            taskArray = [];
-        }
-        else {
-            $numOfTasks.html(taskArray.length);
-            $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); // Not cached otherwise errors.          
-        }
+        $numOfTasks.html(taskArray.length);
+        $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); // Not cached otherwise errors.          
     });
 
     GetTimes(); // Gets the time on initialisation, so that the time element is not left empty.
 
      // Click Events:
     $cancelInput.click(function(s) {
+        taskArray = taskArray.filter(Boolean);
+        console.log(taskArray.length);
+        $numOfTasks.html(taskArray.length);
         $taskInput.css('transform', 'all 0.4s ease');
         $taskInput.animate({ height: ellipseButtonSize, width: ellipseButtonSize, marginTop: "350px" }, 'fast');
         $numOfTasks.fadeIn('fast');
@@ -62,7 +56,10 @@ $(document).ready(function(){
         console.log("the item index is: " + taskArray[itemIndex]);
         taskArray[itemIndex] = undefined;
         console.log("taskarry: " + taskArray)
-        chrome.storage.sync.set({ 'value': taskArray });
+        chrome.storage.sync.set({ 'value': taskArray }, function() {
+            $numOfTasks.html(taskArray.length);
+        });
+
        
     });
     
@@ -76,7 +73,8 @@ $(document).ready(function(){
             $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); //! Works, checkbox position is fixed but slighly too far up.      
             $taskInput.val("");          
             chrome.storage.sync.set({ 'value': taskArray }, function() {
-                // Callback
+                // Callback 
+                $numOfTasks.html(taskArray.length);
             });
 
 
@@ -90,11 +88,9 @@ $(document).ready(function(){
         var stringDate = d.toString().toUpperCase();
         var stringTime = stringDate.substring(16, 21);
         var shortDate = stringDate.substring(0, 10);
-
         if (time < 12) { $greeting.html("Good Morning"); }
         else if (time < 18) { $greeting.html("Good Afternoon"); }
         else if (time >= 18) { $greeting.html("Good Evening"); }
-
         $time.html(stringTime);
         $date.html(shortDate);
     }
