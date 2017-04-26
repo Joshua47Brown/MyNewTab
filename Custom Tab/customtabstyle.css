@@ -81,22 +81,41 @@ body{
 }
 
 #task-list{
+    overflow-y: auto;
     visibility:hidden;
     left: 0;
     right: 0;
+    margin: 0 auto;
     margin-top: 350px;
     position: absolute;
     color: grey;
+    width: 500px;
+    height: 200px;
+}
+
+#task-list::-webkit-scrollbar{
+    margin-left: 300px;
+    position: absolute;
+    border-radius: 10px;
+	width: 12px;
+	background-color: grey;
+}
+
+#task-list::-webkit-scrollbar-track{
+	border-radius: 10px;
+	background-color: transparent;
+}
+
+#task-list::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	background-color: white;
 }
 
 .task-list-items{
     background-color: transparent;
-    /*border: 2px solid white;
-    border-radius: 100px; // Gives each item a similiar look to the task input button.
-    text-indent: 30px;*/
-    width: 500px;
+    width: 400px;
     height: 44px;
-    margin: 2px auto;
+    margin: 0; 
     font: 30px 'Sue Ellen Francisco';
     text-align: left;
     left: 0;
@@ -116,7 +135,7 @@ body{
 
 #checkbox{
     cursor: pointer;
-    left: 60%;
+    left: 90%;
     position: absolute;
     color: grey;
     margin-top: 20px;

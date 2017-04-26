@@ -1,4 +1,5 @@
-$(document).ready(function($){
+$(document).ready(function($) {
+
     var taskArray;
     var ellipseButtonSize = "70px";
     var $greeting = $("#greeting");
@@ -57,6 +58,7 @@ $(document).ready(function($){
     $taskList.on('click', '#checkbox', function(s) {
         //$(this).html("<i class='material-icons'>check_box</i>") // Changes the icon to ticked.
         $(this).hide().html("<i class='material-icons'>check_box</i>").fadeIn('slow');
+        $(this).parent().css('color', 'grey');
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
         console.log(itemIndex);
         console.log("the item index is: " + taskArray[itemIndex]);
@@ -64,12 +66,10 @@ $(document).ready(function($){
         console.log("taskarry: " + taskArray)
         chrome.storage.sync.set({ 'value': taskArray }, function() {
             $numOfTasks.html(taskArray.length);
-        });
-
-       
+        });       
     });
     
-    // Key events:
+    // Keypress events:
     $taskInput.bind('keypress', function(e) { // So the user can submit tasks by pressing enter.
         if (e.keyCode == 13) {
             var i = $taskInput.val();
@@ -77,14 +77,11 @@ $(document).ready(function($){
             taskArray.push(i);
             $taskList.append("<p class='task-list-items'>" + i + "</p>"); // Not cached otherwise errors.
             $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); //! Works, checkbox position is fixed but slighly too far up.      
-            $taskInput.val("");          
+            $taskInput.val("");
             chrome.storage.sync.set({ 'value': taskArray }, function() {
                 // Callback 
                 $numOfTasks.html(taskArray.length);
-            });
-
-
-            
+            });          
         }
     });
 
