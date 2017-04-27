@@ -24,7 +24,7 @@ $(document).ready(function($) {
 
     GetTimes(); // Gets the time on initialisation, so that the time element is not left empty.
 
-     // Click Events:
+     // Click Events
     $cancelInput.click(function(s) {
         taskArray = taskArray.filter(Boolean);
         console.log(taskArray.length);
@@ -68,8 +68,8 @@ $(document).ready(function($) {
             $numOfTasks.html(taskArray.length);
         });       
     });
+
     
-    // Keypress events:
     $taskInput.bind('keypress', function(e) { // So the user can submit tasks by pressing enter.
         if (e.keyCode == 13) {
             var i = $taskInput.val();
@@ -101,5 +101,14 @@ $(document).ready(function($) {
     setInterval(function() { // Gets the time every minute to ensure the wrong time is not displayed. 
         GetTimes();
     }, 60 * 1000);
+
+    function ChangeCSS(cssFile, cssLinkIndex) {
+        var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+        var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("type", "text/css");
+        newlink.setAttribute("href", cssFile);
+        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    }
 
 });

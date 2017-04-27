@@ -1,4 +1,8 @@
 {
+  "background": {
+    "persistent": false,
+    "scripts": [ "background.js" ]
+  },
   "chrome_url_overrides": {
     "newtab": "customtab.html"
   },
