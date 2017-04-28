@@ -26,7 +26,7 @@ body{
     text-align: center;
     color: #808080;
     margin: 0;
-    top: 75%;
+    top: 70%;
     left: 0;
     right: 0;
 }
@@ -37,7 +37,7 @@ body{
     text-align: center;
     color: #808080;
     margin: 0;
-    top: 82%;
+    top: 77%;
     left: 0;
     right: 0;
 }
@@ -157,4 +157,21 @@ body{
     margin: 0 auto;
     left: 0;
     right: 0;
+}
+
+#arrows{
+    color: grey;
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+    top: 90%;
+}
+
+#left-arrow{
+    cursor: pointer;
+}
+
+#right-arrow{
+    cursor: pointer;
 }

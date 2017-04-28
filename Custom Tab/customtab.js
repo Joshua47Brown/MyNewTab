@@ -9,6 +9,8 @@ $(document).ready(function($) {
     var $numOfTasks = $("#num-of-tasks");
     var $taskList = $("#task-list");
     var $cancelInput = $("#cancel-input");
+    var $leftArrow = $("#left-arrow");
+    var $rightArrow = $("#right-arrow")
 
     chrome.storage.sync.get('value', function(c) {
         taskArray = c.value;
@@ -52,7 +54,7 @@ $(document).ready(function($) {
     });
 
     $date.click(function(e) {
-        chrome.storage.sync.clear(); // For testing.
+        chrome.storage.sync.clear(); // For testing. //////////////// Remember to remove!!
     });
 
     $taskList.on('click', '#checkbox', function(s) {
@@ -69,7 +71,14 @@ $(document).ready(function($) {
         });       
     });
 
-    
+    $("#left-arrow").click(function() {
+
+    });
+
+    $("#right-arrow").click(function() {
+
+    });
+  
     $taskInput.bind('keypress', function(e) { // So the user can submit tasks by pressing enter.
         if (e.keyCode == 13) {
             var i = $taskInput.val();
@@ -79,7 +88,6 @@ $(document).ready(function($) {
             $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); //! Works, checkbox position is fixed but slighly too far up.      
             $taskInput.val("");
             chrome.storage.sync.set({ 'value': taskArray }, function() {
-                // Callback 
                 $numOfTasks.html(taskArray.length);
             });          
         }
