@@ -6,7 +6,7 @@ body{
     user-select: none;
     margin: 0 !important;
     padding: 0 !important;
-    background-color: #d1d1d1;
+    background-color: #80152a;
 }
 
 #greeting{
@@ -24,7 +24,7 @@ body{
     position: absolute;
     font: normal 30px 'Roboto Condensed';
     text-align: center;
-    color: #808080;
+    color: #2b081a;
     margin: 0;
     top: 70%;
     left: 0;
@@ -35,7 +35,7 @@ body{
     position: absolute;
     font: normal 30px 'Roboto Condensed';
     text-align: center;
-    color: #808080;
+    color: #2b081a;
     margin: 0;
     top: 77%;
     left: 0;
@@ -43,6 +43,7 @@ body{
 }
 
 #task-input{
+    color: #2b081a;
     width: 70px;
     height: 70px;
     position: absolute;
@@ -66,7 +67,7 @@ body{
 }
 
 #task-input:focus::-webkit-input-placeholder {  
-    color: grey;
+    color: #2b081a;
 }
 
 #task-input::-webkit-input-placeholder{
@@ -130,7 +131,7 @@ body{
     cursor: pointer;
     left: 90%;
     position: absolute;
-    color: grey;
+    color: #2b081a;
     margin-top: 20px;
 }
 
@@ -160,7 +161,7 @@ body{
 }
 
 #arrows{
-    color: grey;
+    color: white;
     left: 0;
     right: 0;
     text-align: center;
