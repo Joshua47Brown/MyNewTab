@@ -179,3 +179,10 @@ body{
 #save{
     cursor: pointer;
 }
+
+.theme-test{
+    left: 300px;
+    color: blue;
+    top: 10%;
+    font: 'Pacifico'
+}

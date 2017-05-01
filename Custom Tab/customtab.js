@@ -13,6 +13,8 @@ $(document).ready(function($) {
     var $leftArrow = $("#left-arrow");
     var $rightArrow = $("#right-arrow");
 
+    $("#date").addClass("theme-test");
+
     chrome.storage.sync.get('pageNum', function(p) {
         switch (p.pageNum) {
             case -1:
@@ -29,6 +31,7 @@ $(document).ready(function($) {
 
     function SetThemeDefault() {
         ChangeCSS("customtabstyle.css", 0);
+        // DOM changes go here.
     }
     
     function SetThemeOne() {
@@ -39,23 +42,24 @@ $(document).ready(function($) {
         ChangeCSS("theme-two.css", 0);
     }
 
-
     chrome.storage.sync.get('value', function(c) {
-        taskArray = c.value;
-        taskArrayChecker = taskArray;
-        if (taskArray == null) { taskArray = []; }
-        taskArray = taskArray.filter(Boolean);
-        for (var items in taskArray) {
-            $taskList.append("<p class='task-list-items'>" + taskArray[items] + "</p>"); // Appends tasks from chrome storage.  
-        }
-        $numOfTasks.html(taskArray.length);
-        $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); // Not cached otherwise errors.          
-    });
+            taskArray = c.value;
+            if (taskArray != null) {
+                taskArray = taskArray.filter(Boolean);
+                for (var items in taskArray) {
+                    $taskList.append("<p class='task-list-items'>" + taskArray[items] + "</p>"); // Appends tasks from chrome storage.  
+                }
+                $numOfTasks.html(taskArray.length);
+                $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); // Not cached otherwise errors.         
+            } else {
+                $numOfTasks.html("0");
+            }
+        });
 
     GetTimes(); // Gets the time on initialisation, so that the time element is not left empty.
 
      // Click Events
-    $cancelInput.click(function(s) {
+    $cancelInput.on('click',function(s) {
         taskArray = taskArray.filter(Boolean);
         console.log(taskArray.length);
         $numOfTasks.html(taskArray.length);
@@ -66,7 +70,7 @@ $(document).ready(function($) {
         $cancelInput.hide();
     });
 
-    $taskInput.click(function(s) {
+    $taskInput.on('click', function(s) {
         s.stopPropagation();
         $taskInput.css('transform', 'none');
         $taskInput.animate({ height: "50px", width: "800px", marginTop: "280px" }, "fast");
@@ -74,15 +78,16 @@ $(document).ready(function($) {
         $taskList.css('visibility', 'visible');
         $cancelInput.show();
     });
-
+   
     $taskInput.hover(function() {
-        $numOfTasks.hide().html("<i id='add' class='material-icons'>add</i>").fadeIn('slow');      
+        $numOfTasks.hide().html("<i id='add' class='material-icons'>add</i>").fadeIn('slow');
     }, function() {
-        $numOfTasks.hide().html(taskArray.length).fadeIn('slow');
-    });
-
-    $date.click(function(e) {
-        chrome.storage.sync.clear(); // For testing. //////////////// Remember to remove!!
+        if (taskArray != null) {
+            $numOfTasks.hide().html(taskArray.length).fadeIn('slow');
+        } else {
+            $numOfTasks.hide().html("0").fadeIn('slow');
+        }
+       
     });
 
     $taskList.on('click', '#checkbox', function(s) {
@@ -99,9 +104,7 @@ $(document).ready(function($) {
     });
 
     $leftArrow.on('click', function() {
-        if (page == undefined) {
-            page = 0;
-        }
+        if (page == undefined) { page = 0; }
         switch (page) {
             case -1:
                 page = 1;
@@ -119,9 +122,7 @@ $(document).ready(function($) {
     });
 
     $rightArrow.on('click', function() {
-        if (page == undefined) {
-            page = 0;
-        }
+        if (page == undefined) { page = 0; }
         switch (page) {
             case -1:
                 page++;
