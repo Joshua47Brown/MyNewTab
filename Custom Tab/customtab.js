@@ -13,8 +13,6 @@ $(document).ready(function($) {
     var $leftArrow = $("#left-arrow");
     var $rightArrow = $("#right-arrow");
 
-    $("#date").addClass("theme-test");
-
     chrome.storage.sync.get('pageNum', function(p) {
         switch (p.pageNum) {
             case -1:
@@ -59,21 +57,24 @@ $(document).ready(function($) {
     GetTimes(); // Gets the time on initialisation, so that the time element is not left empty.
 
      // Click Events
-    $cancelInput.on('click',function(s) {
-        taskArray = taskArray.filter(Boolean);
-        console.log(taskArray.length);
-        $numOfTasks.html(taskArray.length);
-        $numOfTasks.css('visibility', 'visible');
-        $taskInput.animate({ height: ellipseButtonSize, width: ellipseButtonSize, marginTop: "350px" }, 'fast');
-        $numOfTasks.fadeIn('fast');
-        $taskList.css('visibility', 'hidden');
-        $cancelInput.hide();
+    $cancelInput.on('click', function(s) {
+        if (page == 0 || page == undefined) { // Use this depending on css file.
+            taskArray = taskArray.filter(Boolean);
+            console.log(taskArray.length);
+            $numOfTasks.html(taskArray.length);
+            $numOfTasks.css('visibility', 'visible');
+            $taskInput.animate({ height: ellipseButtonSize, width: ellipseButtonSize, marginTop: "350px" }, 'fast');
+            $numOfTasks.fadeIn('fast');
+            $taskList.css('visibility', 'hidden');
+            $cancelInput.hide();
+        }
+        
     });
 
     $taskInput.on('click', function(s) {
         s.stopPropagation();
         $taskInput.css('transform', 'none');
-        $taskInput.animate({ height: "50px", width: "800px", marginTop: "280px" }, "fast");
+        $taskInput.animate({ height: "50px", width: "600px", marginTop: "260px" }, "fast");
         $numOfTasks.css('visibility', 'hidden');
         $taskList.css('visibility', 'visible');
         $cancelInput.show();
