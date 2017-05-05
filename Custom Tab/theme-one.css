@@ -35,22 +35,22 @@ body{
 }
 
 #task-input{
-    display: none;
-    width: 70px;
-    height: 70px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-collapse: collapse;
+    width: 450px;
+    height: 50px;
     position: absolute;
-    border-radius: 100px;
+    top: 125px;
     cursor: pointer;
-    font-family: "Sue Ellen Francisco";
+    font-family: "Roboto Condensed";
     font-size: 2em;
     text-indent: 1em;
-    border: 4px solid white;
+    border: solid 3px #f0f8ff;
     background-color: transparent;
     box-shadow: none;
-    margin: 0 auto;
     left: 0;
     right: 0;
-    margin-top: 350px;
 }
 
 #task-input:focus{
@@ -58,12 +58,8 @@ body{
     outline: none;
 }
 
-#task-input:focus::-webkit-input-placeholder {  
-    color: grey;
-}
-
 #task-input::-webkit-input-placeholder{
-    color: transparent;
+    color: #b1b1b1;
 }
 
 #num-of-tasks{
@@ -78,34 +74,33 @@ body{
 }
 
 #task-list{
-    visibility: hidden;
-    border: solid 4px #f0f8ff;
+    text-indent: 6%;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border: solid 3px #f0f8ff;
     overflow-y: auto;
     left: 0;
     right: 0;
-    margin-top: 321px;
+    top: 180px;
     position: absolute;
     color: grey;
-    width: 500px;
-    height: 222px;
+    width: 450px;
+    height: 300px;
 }
 
 #task-list::-webkit-scrollbar{
     margin-left: 300px;
     position: absolute;
-    border-radius: 10px;
 	width: 12px;
     height: 0;
 	background-color: grey;
 }
 
 #task-list::-webkit-scrollbar-track{
-	border-radius: 10px;
 	background-color: transparent;
 }
 
 #task-list::-webkit-scrollbar-thumb{
-	border-radius: 10px;
 	background-color: white;
 }
 
@@ -114,18 +109,26 @@ body{
     width: 400px;
     height: 54px;
     margin: 0; 
-    font: 30px 'Sue Ellen Francisco';
+    font: 2em 'Roboto Condensed';
     left: 0;
     right: 0;
-    color: black;
+    color: #f7f7f7;
+}
+
+.task-list-items:first-child{
+    margin-top: 20px;
 }
 
 #checkbox{
+    position: sticky;
+    width: 51px;
+    padding: 0;
     cursor: pointer;
-    left: 90%;
+    left: 80%;
     position: absolute;
-    color: grey;
-    margin-top: 20px;
+    color: #f7f7f7;
+    margin-top: 5px;
+margin: 0 auto;
 }
 
 #cancel-input{
@@ -148,8 +151,7 @@ body{
     width: 600px;
     height: 100vh;
     position: absolute;
-    margin: 0 auto;
-    left: 0;
+    left: 15%;
     right: 0;
 }
 

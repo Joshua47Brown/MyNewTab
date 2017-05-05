@@ -1,5 +1,4 @@
 //chrome.storage.sync.clear();
-
 var page;
 
 chrome.storage.sync.get('pageNum', function(p) {

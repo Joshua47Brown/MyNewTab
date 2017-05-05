@@ -26,7 +26,6 @@ $(document).ready(function($) {
             }
         });
 
-     // Click Events
     $cancelInput.on('click', function(s) {
         if (taskArray != null) {
             taskArray = taskArray.filter(Boolean);
@@ -41,39 +40,46 @@ $(document).ready(function($) {
     });
 
     $taskInput.on('click', function(s) {
-        s.stopPropagation();
-        $taskInput.css('transform', 'none');
-        $taskInput.animate({ height: "50px", width: "600px", marginTop: "260px" }, "fast");
-        $numOfTasks.css('visibility', 'hidden');
-        $taskList.css('visibility', 'visible');
-        $cancelInput.show();
+        if (page == 0) {
+            s.stopPropagation();
+            $taskInput.css('transform', 'none');
+            $taskInput.animate({ height: "50px", width: "600px", marginTop: "260px" }, "fast");
+            $numOfTasks.css('visibility', 'hidden');
+            $taskList.css('visibility', 'visible');
+            $cancelInput.show();
+        }
+        else if (page == -1) {
+
+        }
+        
     });
    
     $taskInput.hover(function() {
-        $numOfTasks.hide().html("<i id='add' class='material-icons'>add</i>").fadeIn('slow');
-    }, function() {
-        if (taskArray != null) {
-            $numOfTasks.hide().html(taskArray.length).fadeIn('slow');
-        } else {
-            $numOfTasks.hide().html("0").fadeIn('slow');
+        if (page == 0) {
+            $numOfTasks.hide().html("<i id='add' class='material-icons'>add</i>").fadeIn('slow');
         }
-       
+    }, function() {
+        if (page == 0) {
+            if (taskArray != null) {
+                $numOfTasks.hide().html(taskArray.length).fadeIn('slow');
+            } else {
+                $numOfTasks.hide().html("0").fadeIn('slow');
+            }
+        }
     });
 
     $taskList.on('click', '#checkbox', function(s) {
         $(this).hide().html("<i class='material-icons'>check_box</i>").fadeIn('slow');
         $(this).parent().css('opacity', '0.5');
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
-        console.log(itemIndex);
-        console.log("the item index is: " + taskArray[itemIndex]);
         taskArray[itemIndex] = undefined;
-        console.log("taskarry: " + taskArray)
         chrome.storage.sync.set({ 'value': taskArray }, function() {
             $numOfTasks.html(taskArray.length);
         });       
     });
 
     $leftArrow.on('click', function() {
+        $("*").removeAttr("style");
         //alert("the page you were just on: " + page);
         switch (page) {
             case -1:
@@ -93,6 +99,7 @@ $(document).ready(function($) {
     });
 
     $rightArrow.on('click', function() {
+        $("*").removeAttr("style");
         //alert("the page you were just on: " + page);
         switch (page) {
             case -1:
