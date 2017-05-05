@@ -1,7 +1,6 @@
 $(document).ready(function($) {
 
     var taskArray;
-    var page;
     var ellipseButtonSize = "70px";
     var $greeting = $("#greeting");
     var $taskInput = $("#task-input");
@@ -12,33 +11,6 @@ $(document).ready(function($) {
     var $cancelInput = $("#cancel-input");
     var $leftArrow = $("#left-arrow");
     var $rightArrow = $("#right-arrow");
-
-    chrome.storage.sync.get('pageNum', function(p) {
-        switch (p.pageNum) {
-            case -1:
-                SetThemeOne();
-                break;
-            case 0:
-                SetThemeDefault();
-                break;
-            case 1:
-                SetThemeTwo();
-                break;
-        }
-    });
-
-    function SetThemeDefault() {
-        ChangeCSS("customtabstyle.css", 0);
-        // DOM changes go here.
-    }
-    
-    function SetThemeOne() {
-        ChangeCSS("theme-one.css", 0);
-    }
-
-    function SetThemeTwo() {
-        ChangeCSS("theme-two.css", 0);
-    }
 
     chrome.storage.sync.get('value', function(c) {
             taskArray = c.value;
@@ -54,21 +26,18 @@ $(document).ready(function($) {
             }
         });
 
-    GetTimes(); // Gets the time on initialisation, so that the time element is not left empty.
-
      // Click Events
     $cancelInput.on('click', function(s) {
-        if (page == 0 || page == undefined) { // Use this depending on css file.
+        if (taskArray != null) {
             taskArray = taskArray.filter(Boolean);
             console.log(taskArray.length);
             $numOfTasks.html(taskArray.length);
-            $numOfTasks.css('visibility', 'visible');
-            $taskInput.animate({ height: ellipseButtonSize, width: ellipseButtonSize, marginTop: "350px" }, 'fast');
-            $numOfTasks.fadeIn('fast');
-            $taskList.css('visibility', 'hidden');
-            $cancelInput.hide();
         }
-        
+        $numOfTasks.css('visibility', 'visible');
+        $taskInput.animate({ height: ellipseButtonSize, width: ellipseButtonSize, marginTop: "350px" }, 'fast');
+        $numOfTasks.fadeIn('fast');
+        $taskList.css('visibility', 'hidden');
+        $cancelInput.hide();
     });
 
     $taskInput.on('click', function(s) {
@@ -105,45 +74,45 @@ $(document).ready(function($) {
     });
 
     $leftArrow.on('click', function() {
-        if (page == undefined) { page = 0; }
+        //alert("the page you were just on: " + page);
         switch (page) {
             case -1:
                 page = 1;
-                SetThemeTwo();
+                ChangeCSS("theme-two.css", 0);
                 break;
             case 0:
                 page--;
-                SetThemeOne();
+                ChangeCSS("theme-one.css", 0);
                 break;
             case 1:
                 page--;
-                SetThemeDefault();
+                ChangeCSS("customtabstyle.css", 0);
                 break;
-        }      
+        }
+        //alert("the page you are now one: " + page);
     });
 
     $rightArrow.on('click', function() {
-        if (page == undefined) { page = 0; }
+        //alert("the page you were just on: " + page);
         switch (page) {
             case -1:
                 page++;
-                SetThemeDefault();
+                ChangeCSS("customtabstyle.css", 0);
                 break;
             case 0:
                 page++
-                SetThemeTwo();
+                ChangeCSS("theme-two.css", 0);
                 break;
             case 1:
                 page = -1; // Allows looping.
-                SetThemeOne();
+                ChangeCSS("theme-one.css", 0);
                 break;
         }
+        //alert("the page you are now one: " + page);
     });
 
     $("#save").on('click', function() {
-        chrome.storage.sync.set({ 'pageNum': page }, function() {
-            alert("success!");
-        });
+        chrome.storage.sync.set({ 'pageNum': page });
     });
 
     $taskInput.bind('keypress', function(e) { // So the user can submit tasks by pressing enter.
@@ -173,17 +142,9 @@ $(document).ready(function($) {
         $date.html(shortDate);
     }
 
+    GetTimes();
+
     setInterval(function() { // Gets the time every minute to ensure the wrong time is not displayed. 
         GetTimes();
     }, 60 * 1000);
-
-    function ChangeCSS(cssFile, cssLinkIndex) {
-        var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-        var newlink = document.createElement("link");
-        newlink.setAttribute("rel", "stylesheet");
-        newlink.setAttribute("type", "text/css");
-        newlink.setAttribute("href", cssFile);
-        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-    }
-
 });

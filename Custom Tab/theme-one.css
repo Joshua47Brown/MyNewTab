@@ -6,30 +6,24 @@ body{
     user-select: none;
     margin: 0;
     padding: 0;
-    background-color: #d1d1d1;
+    background-color: #545454;
 }
 
 #greeting{
-    font: normal 10em 'Pacifico';
-    color: white;
-    position: absolute;
-    text-align: center;
-    top: 5%;
-    margin: 0;
-    left: 0;
-    right: 0;
+    display: none;
 }
 
 #date-and-time{
-    margin: 0 auto;
-    width: 300px;
+    border: solid 3px #f7f7f7;
+    border-radius: 2px;
+    width: 200px;
     height: 150px;
     position: absolute;
     text-align: center;
-    top: 70%;
-    left: 0;
+    top: 60%;
+    left: 65%;
     right: 0;
-    color: #808080;
+    color: #f7f7f7;
 }
 
 #date{
@@ -38,10 +32,10 @@ body{
 
 #time{
     font: normal 30px 'Roboto Condensed';
-
 }
 
 #task-input{
+    display: none;
     width: 70px;
     height: 70px;
     position: absolute;
@@ -73,6 +67,7 @@ body{
 }
 
 #num-of-tasks{
+    display: none;
     color: white;
     position: absolute;
     margin-top: 374px;
@@ -83,11 +78,11 @@ body{
 }
 
 #task-list{
+    visibility: hidden;
+    border: solid 4px #f0f8ff;
     overflow-y: auto;
-    visibility:hidden;
     left: 0;
     right: 0;
-    margin: 0 auto;
     margin-top: 321px;
     position: absolute;
     color: grey;
