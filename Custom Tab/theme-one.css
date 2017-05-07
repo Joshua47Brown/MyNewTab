@@ -63,7 +63,6 @@ body{
 }
 
 #num-of-tasks{
-    display: none;
     color: white;
     position: absolute;
     margin-top: 374px;

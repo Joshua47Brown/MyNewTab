@@ -68,8 +68,8 @@ $(document).ready(function($) {
         }
     });
 
-    $taskList.on('click', '#checkbox', function(s) {
-        $(this).hide().html("<i class='material-icons'>check_box</i>").fadeIn('slow');
+    $taskList.on('click', '#checkbox', function() {
+        $(this).hide().html("check_box").fadeIn('slow');
         $(this).parent().css('opacity', '0.5');
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
         taskArray[itemIndex] = undefined;
@@ -79,9 +79,14 @@ $(document).ready(function($) {
     });
 
     $leftArrow.on('click', function() {
-        $("*").removeAttr("style");
+        $("body").fadeOut(0.1, function() {
+            $(this).fadeIn(0.1);
+        });
+        //$("*").removeAttr("style");
+        $("*").not("p.task-list-items").removeAttr("style");
         //alert("the page you were just on: " + page);
         switch (page) {
+
             case -1:
                 page = 1;
                 ChangeCSS("theme-two.css", 0);
@@ -99,7 +104,11 @@ $(document).ready(function($) {
     });
 
     $rightArrow.on('click', function() {
-        $("*").removeAttr("style");
+        $("body").fadeOut(0.1,function() {
+            $(this).fadeIn(0.1);
+        });
+        $("*").not("p.task-list-items").removeAttr("style");
+        //$("*").removeAttr("style");
         //alert("the page you were just on: " + page);
         switch (page) {
             case -1:
@@ -115,7 +124,7 @@ $(document).ready(function($) {
                 ChangeCSS("theme-one.css", 0);
                 break;
         }
-        //alert("the page you are now one: " + page);
+        //alert("the page you are now on: " + page);
     });
 
     $("#save").on('click', function() {

@@ -1,6 +1,5 @@
 //chrome.storage.sync.clear();
 var page;
-
 chrome.storage.sync.get('pageNum', function(p) {
     page = p.pageNum;
     if (page == null) { page = 0; }
@@ -16,7 +15,6 @@ chrome.storage.sync.get('pageNum', function(p) {
             break;
     }
 });
-
 
 function ChangeCSS(cssFile, cssLinkIndex) {
     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
