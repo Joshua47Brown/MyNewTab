@@ -148,7 +148,7 @@ $(document).ready(function($) {
     function GetTimes() {
         var d = new Date();
         var time = d.getHours();
-        var stringDate = d.toString().toUpperCase();
+        var stringDate = d.toString();
         var stringTime = stringDate.substring(16, 21);
         var shortDate = stringDate.substring(0, 10);
         if (time < 12) { $greeting.html("Good Morning"); }
