@@ -6,9 +6,9 @@
   "chrome_url_overrides": {
     "newtab": "customtab.html"
   },
-  "description": "A custom new tab.",
+  "description": "Lack is a simple, sleek replacement for the default new tab page.",
   "manifest_version": 2,
-  "name": "New Tab",
+  "name": "Lack - New Tab Page",
   "permissions": [
     "storage"
   ],

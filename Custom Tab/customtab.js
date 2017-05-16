@@ -1,5 +1,7 @@
 $(document).ready(function($) {
 
+    //window.location.href = "welcome.html";
+
     var taskArray;
     var ellipseButtonSize = "70px";
     var $greeting = $("#greeting");
@@ -128,13 +130,17 @@ $(document).ready(function($) {
     });
 
     $("#save").on('click', function() {
-        chrome.storage.sync.set({ 'pageNum': page });
+        chrome.storage.sync.set({ 'pageNum': page }, function() {
+            $("#confirm").animate({ opacity: 1 }, "fast", function() {
+                $(this).delay(3000).animate({ opacity: 0 }, "fast");
+            });
+        });
     });
 
     $taskInput.bind('keypress', function(e) { // So the user can submit tasks by pressing enter.
         if (e.keyCode == 13) {
             var i = $taskInput.val();
-            if (taskArray == null) { taskArray = []; } // For a new user or a user without previous chrome storage of taskArray. 
+            if (taskArray == null) { taskArray = []; } // For a new user or a user without previous chrome storage of taskArray. Keep it this way.
             taskArray.push(i);
             $taskList.append("<p class='task-list-items'>" + i + "</p>"); // Not cached otherwise errors.
             $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); //! Works, checkbox position is fixed but slighly too far up.      
@@ -160,7 +166,6 @@ $(document).ready(function($) {
 
     GetTimes();
 
-    setInterval(function() { // Gets the time every minute to ensure the wrong time is not displayed. 
-        GetTimes();
-    }, 60 * 1000);
+    setInterval(function() { GetTimes(); }, 60 * 1000); // Gets the time every minute to ensure the wrong time is not displayed. 
+
 });
