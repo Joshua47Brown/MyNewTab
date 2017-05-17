@@ -13,6 +13,8 @@ chrome.storage.sync.get('pageNum', function(p) {
         case 1:
             ChangeCSS("theme-two.css", 0);
             break;
+        case 2:
+            ChangeCSS("theme-three.css", 0);
     }
 });
 

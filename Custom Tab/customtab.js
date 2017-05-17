@@ -84,14 +84,11 @@ $(document).ready(function($) {
         $("body").fadeOut(0.1, function() {
             $(this).fadeIn(0.1);
         });
-        //$("*").removeAttr("style");
         $("*").not("p.task-list-items").removeAttr("style");
-        //alert("the page you were just on: " + page);
         switch (page) {
-
             case -1:
-                page = 1;
-                ChangeCSS("theme-two.css", 0);
+                page = 2;
+                ChangeCSS("theme-three.css", 0);
                 break;
             case 0:
                 page--;
@@ -101,8 +98,11 @@ $(document).ready(function($) {
                 page--;
                 ChangeCSS("customtabstyle.css", 0);
                 break;
+            case 2:
+                page--;
+                ChangeCSS("theme-two.css", 0);
+                break;
         }
-        //alert("the page you are now one: " + page);
     });
 
     $rightArrow.on('click', function() {
@@ -110,21 +110,24 @@ $(document).ready(function($) {
             $(this).fadeIn(0.1);
         });
         $("*").not("p.task-list-items").removeAttr("style");
-        //$("*").removeAttr("style");
-        //alert("the page you were just on: " + page);
         switch (page) {
             case -1:
                 page++;
                 ChangeCSS("customtabstyle.css", 0);
                 break;
             case 0:
-                page++
+                page++;
                 ChangeCSS("theme-two.css", 0);
                 break;
             case 1:
-                page = -1; // Allows looping.
+                page++; // Allows looping.
+                ChangeCSS("theme-three.css", 0);
+                break;
+            case 2:
+                page = -1;
                 ChangeCSS("theme-one.css", 0);
                 break;
+
         }
         //alert("the page you are now on: " + page);
     });
