@@ -37,9 +37,10 @@ body{
     font: 2em "Cutive Mono";
     text-indent: 1em;
     border: none;
-    background: #f7f7f7;
+    background: #ef7d7d;
     left: 0;
     right: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 1px 1px 20px;
 }
 
 #task-input:focus{
@@ -47,7 +48,7 @@ body{
 }
 
 #task-input::-webkit-input-placeholder{
-    color: #b1b1b1;
+    color: #f7f7f7;
 }
 
 #num-of-tasks{
@@ -103,12 +104,13 @@ body{
 }
 
 #task-button-holder{
-    background: #bfbfbf;
+    background: #cc6b6b;
     width: 35%;
     height: 100vh;
     position: absolute;
     left: 65%;
     right: 0;
+    box-shadow: rgba(0, 0, 0, 0.27) 1px 1px 20px 0px;
 }
 
 #theme-switcher{
