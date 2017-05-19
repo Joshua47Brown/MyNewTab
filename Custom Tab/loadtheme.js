@@ -1,20 +1,17 @@
-//chrome.storage.sync.clear();
 var page;
 chrome.storage.sync.get('pageNum', function(p) {
     page = p.pageNum;
-    if (page == null) { page = 0; }
+    if (page == null) { page = 1; }
     switch (p.pageNum) {
-        case -1:
+        case 1:
             ChangeCSS("theme-one.css", 0);
             break;
-        case 0:
-            ChangeCSS("customtabstyle.css", 0);
-            break;
-        case 1:
+        case 2:
             ChangeCSS("theme-two.css", 0);
             break;
-        case 2:
+        case 3:
             ChangeCSS("theme-three.css", 0);
+            break;
     }
 });
 

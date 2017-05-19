@@ -45,6 +45,16 @@ body{
     font: normal 35px 'Cutive Mono';
 }
 
+#task-button-holder{
+    width: 35%;
+    height: 100vh;
+    position: absolute;
+    left: 5%;
+    right: 0;
+    background: #f7f7f7;
+    box-shadow: rgba(152,152,152,.28) 1px 1px 10px;
+}
+
 #task-input{
     width: 100%;
     position: absolute;
@@ -66,10 +76,6 @@ body{
     color: #d6ad98; 
 }
 
-#num-of-tasks{
-    display: none;
-}
-
 #task-list{
     text-indent: 6%;
     overflow-y: auto;
@@ -79,18 +85,6 @@ body{
     position: absolute;
     color: grey;
     width: 100%;
-}
-
-#task-list::-webkit-scrollbar{
-    margin-left: 300px;
-    position: absolute;
-	width: 12px;
-    height: 0;
-	background: transparent;
-}
-
-#task-list::-webkit-scrollbar-thumb{
-	background: #f7f7f7;
 }
 
 .task-list-items{
@@ -117,18 +111,16 @@ body{
     margin: 0 auto;
 }
 
-#cancel-input{
-    display: none;
+#task-list::-webkit-scrollbar{
+    margin-left: 300px;
+    position: absolute;
+	width: 12px;
+    height: 0;
+	background: transparent;
 }
 
-#task-button-holder{
-    width: 35%;
-    height: 100vh;
-    position: absolute;
-    left: 5%;
-    right: 0;
-    background: #f7f7f7;
-    box-shadow: rgba(152,152,152,.28) 1px 1px 10px;
+#task-list::-webkit-scrollbar-thumb{
+	background: #f7f7f7;
 }
 
 #theme-switcher{

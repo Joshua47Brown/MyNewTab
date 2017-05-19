@@ -37,6 +37,17 @@ text-transform: uppercase;
     font: normal 30px 'Roboto Condensed';
 }
 
+#task-button-holder{
+    top: 120px;
+    width: 450px;
+    height: 350px;
+    position: absolute;
+    left: 15%;
+    right: 0;
+    box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
+    background: white;
+}
+
 #task-input{
     border-radius: 2px;
     width: 450px;
@@ -60,10 +71,6 @@ text-transform: uppercase;
     color: #cbcbcb;
 }
 
-#num-of-tasks{
-    display: none;
-}
-
 #task-list{
     text-indent: 6%;
     border-radius: 2px 2px;
@@ -76,18 +83,6 @@ text-transform: uppercase;
     color: grey;
     width: 450px;
     height: 295px;
-}
-
-#task-list::-webkit-scrollbar{
-    margin-left: 300px;
-    position: absolute;
-	width: 12px;
-    height: 0;
-	background: transparent;
-}
-
-#task-list::-webkit-scrollbar-thumb{
-	background-color: #a6a6a6;
 }
 
 .task-list-items{
@@ -115,19 +110,16 @@ text-transform: uppercase;
     margin: 0 auto;
 }
 
-#cancel-input{
-    display: none;
+#task-list::-webkit-scrollbar{
+    margin-left: 300px;
+    position: absolute;
+	width: 12px;
+    height: 0;
+	background: transparent;
 }
 
-#task-button-holder{
-    top: 120px;
-    width: 450px;
-    height: 350px;
-    position: absolute;
-    left: 15%;
-    right: 0;
-    box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
-    background: white;
+#task-list::-webkit-scrollbar-thumb{
+	background-color: #a6a6a6;
 }
 
 #theme-switcher{
