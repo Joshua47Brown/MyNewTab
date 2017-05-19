@@ -6,7 +6,7 @@ body{
     user-select: none;
     margin: 0;
     padding: 0;
-    background: #5ad5ef;
+    background: #e0e0e0;
 }
 
 #greeting{
@@ -14,8 +14,8 @@ body{
 }
 
 #date-and-time{
-    text-transform: uppercase;
-    border: solid 3px #f7f7f7;
+text-transform: uppercase;
+    border: solid 3px rgba(247, 247, 247, 0);
     border-radius: 2px;
     width: 200px;
     height: 150px;
@@ -24,7 +24,9 @@ body{
     top: 60%;
     left: 65%;
     right: 0;
-    color: #f7f7f7;
+    color: rgb(169, 169, 169);
+    box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
+    background: #ffffff;
 }
 
 #date{
@@ -40,14 +42,14 @@ body{
     width: 450px;
     height: 50px;
     position: absolute;
-    top: 125px;
-    font-family: "Playfair Display";
-    font-size: 2em;
+    top: 9px;
     text-indent: 1em;
-    border: solid 3px #f0f8ff;
+    border: none;
     background: transparent;
     left: 0;
     right: 0;
+    font: 1.8em "Roboto Condensed";
+    color: #a6a6a6;
 }
 
 #task-input:focus{
@@ -55,7 +57,7 @@ body{
 }
 
 #task-input::-webkit-input-placeholder {
-    color: #f7f7f7;
+    color: #cbcbcb;
 }
 
 #num-of-tasks{
@@ -65,15 +67,15 @@ body{
 #task-list{
     text-indent: 6%;
     border-radius: 2px 2px;
-    border: solid 3px #f0f8ff;
+    border: none;
     overflow-y: auto;
     left: 0;
     right: 0;
-    top: 180px;
+    top: 55px;
     position: absolute;
     color: grey;
     width: 450px;
-    height: 300px;
+    height: 295px;
 }
 
 #task-list::-webkit-scrollbar{
@@ -85,7 +87,7 @@ body{
 }
 
 #task-list::-webkit-scrollbar-thumb{
-	background-color: #f7f7f7;
+	background-color: #a6a6a6;
 }
 
 .task-list-items{
@@ -93,14 +95,14 @@ body{
     width: 400px;
     height: 54px;
     margin: 0; 
-    font: 2em 'Playfair Display';
+    font: 1.8em 'Roboto Condensed';
     left: 0;
     right: 0;
-    color: #f7f7f7;
+    color: #a6a6a6;
 }
 
 .task-list-items:first-child{
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 #checkbox{
@@ -108,7 +110,7 @@ body{
     cursor: pointer;
     left: 80%;
     position: absolute;
-    color: #f7f7f7;
+    color: #a6a6a6;
     margin-top: 5px;
     margin: 0 auto;
 }
@@ -118,11 +120,14 @@ body{
 }
 
 #task-button-holder{
-    width: 600px;
-    height: 100vh;
+    top: 120px;
+    width: 450px;
+    height: 350px;
     position: absolute;
     left: 15%;
     right: 0;
+    box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
+    background: white;
 }
 
 #theme-switcher{
