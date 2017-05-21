@@ -73,7 +73,7 @@ body{
 }
 
 #task-input::-webkit-input-placeholder{
-    color: #d6ad98; 
+    color: #ffba81; 
 }
 
 #task-list{
@@ -85,16 +85,17 @@ body{
     position: absolute;
     color: grey;
     width: 100%;
+    height: 60vh;
 }
 
 .task-list-items{
     width: 400px;
-    height: 74px;
+    height: 94px;
     margin: 0; 
-    font: 2em 'Cutive Mono';
+    font: 2.3em 'Sue Ellen Francisco';
     left: 0;
     right: 0;
-    color: #d6ad98;
+    color: #ffba81;
 }
 
 .task-list-items:first-child{
@@ -106,9 +107,8 @@ body{
     cursor: pointer;
     left: 80%;
     position: absolute;
-    color: #d6ad98;
-    margin-top: 5px;
-    margin: 0 auto;
+    color: #ffba81;
+    margin-top: 10px;
 }
 
 #task-list::-webkit-scrollbar{
@@ -120,7 +120,7 @@ body{
 }
 
 #task-list::-webkit-scrollbar-thumb{
-	background: #f7f7f7;
+	background: lightgrey;
 }
 
 #theme-switcher{

@@ -76,7 +76,7 @@ body{
 
 .task-list-items{
     width: 400px;
-    height: 74px;
+    height: 94px;
     margin: 0; 
     font: 1.8em "Roboto Slab";
     left: 0;
@@ -85,7 +85,7 @@ body{
 }
 
 .task-list-items:first-child{
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 #checkbox{
@@ -107,7 +107,7 @@ body{
 }
 
 #task-list::-webkit-scrollbar-thumb{
-	background: #f7f7f7;
+	background: #a74d4d;
 }
 
 #theme-switcher{

@@ -33,6 +33,23 @@ $(document).ready(function($) {
         chrome.storage.sync.set({ 'value': taskArray });       
     });
 
+    //$taskList.on('click', '#checkbox', function() {
+    //    if ($(this).hasClass("checked")) {
+    //        $(this).parent().css('opacity', '1');
+    //        $(this).hide().html("check_box_outline_blank").fadeIn('slow');
+
+    //        $(this).removeClass("checked");
+    //    } else {
+    //        $(this).hide().html("check_box").fadeIn('slow');
+    //        $(this).parent().css('opacity', '0.5');
+    //        var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
+    //        taskArray[itemIndex] = undefined;
+    //        chrome.storage.sync.set({ 'value': taskArray });
+
+    //        $(this).addClass("checked");
+    //    }
+    //});
+
     $leftArrow.on('click', function() {
         $("body").fadeOut(0.1, function() {$(this).fadeIn(0.1);});
         $("*").not("p.task-list-items").removeAttr("style");
@@ -83,11 +100,14 @@ $(document).ready(function($) {
         if (e.keyCode == 13) {
             var i = $taskInput.val();
             if (taskArray == null) { taskArray = []; } // For a new user or a user without previous chrome storage of taskArray. Keep it this way.
-            taskArray.push(i);
-            $taskList.append("<p class='task-list-items'>" + i + "</p>"); // Not cached otherwise errors.
-            $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>");
-            $taskInput.val("");
-            chrome.storage.sync.set({ 'value': taskArray });          
+            if (/\S/.test(i)) {
+                taskArray.push(i);
+                $taskList.append("<p class='task-list-items'>" + i + "</p>"); // Not cached otherwise errors.
+                $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>");
+                $taskInput.val("");
+                chrome.storage.sync.set({ 'value': taskArray });
+            }
+            
         }
     });
 
