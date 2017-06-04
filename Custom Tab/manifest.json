@@ -3,10 +3,16 @@
     "persistent": false,
     "scripts": [ "background.js" ]
   },
+  "browser_action": {
+    "default_icon": "lacklogo1.png"
+  },
   "chrome_url_overrides": {
     "newtab": "customtab.html"
   },
-  "description": "Lack is a simple, sleek replacement for the default new tab page.",
+  "description": "A simple, sleek alternative to the default new tab page.",
+  "icons": {
+    "128": "lacklogo1.png"
+  },
   "manifest_version": 2,
   "name": "Lack - New Tab Page",
   "permissions": [
@@ -14,3 +20,4 @@
   ],
   "version": "0.1.0"
 }
+

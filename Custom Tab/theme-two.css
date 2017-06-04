@@ -44,7 +44,7 @@ body{
     width: 100%;
     height: 10vh;
     position: absolute;
-    font: 1.8em "Roboto Slab";
+    font: italic 2em "Playfair Display";
     text-indent: 1em;
     border: none;
     background: #ef7d7d;
@@ -75,10 +75,9 @@ body{
 }
 
 .task-list-items{
-    width: 400px;
     height: 94px;
     margin: 0; 
-    font: 1.8em "Roboto Slab";
+    font: 1.3em "Roboto Slab";
     left: 0;
     right: 0;
     color: #f7f7f7;
@@ -91,7 +90,7 @@ body{
 #checkbox{
     width: 51px;
     cursor: pointer;
-    left: 80%;
+    left: 85%;
     position: absolute;
     color: #f7f7f7;
     margin-top: 5px;
@@ -111,13 +110,13 @@ body{
 }
 
 #theme-switcher{
-    width: 200px;
     color: rgba(0, 0, 0, 0.10);
     left: 0;
     right: 0;
     text-align: center;
-    position: absolute;
-    top: 90%;
+    position: absolute;   
+    bottom: 1%;
+    width: 200px;
     margin: 0 auto;
 }
 

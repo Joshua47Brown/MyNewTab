@@ -1,5 +1,7 @@
 $(document).ready(function($) {
 
+    //window.location.href = "welcome.html";
+
     var taskArray;
     var ellipseButtonSize = "70px";
     var $greeting = $("#greeting");
