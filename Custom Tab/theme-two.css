@@ -6,7 +6,7 @@ body{
     user-select: none;
     margin: 0;
     padding: 0;
-    background: #a74d4d;
+    background: #774545;
 }
 
 #greeting{
@@ -17,7 +17,7 @@ body{
     top: 30%;
     text-align: center;
     position: absolute;
-    color: #f7f7f7;
+    color: #fff;
     width: 65%;
 }
 
@@ -31,13 +31,19 @@ body{
 }
 
 #task-button-holder{
-    background: #cc6b6b;
+    background: #a75f5f;
     width: 35%;
     height: 100vh;
     position: absolute;
     left: 65%;
     right: 0;
     box-shadow: rgba(0, 0, 0, 0.27) 1px 1px 20px 0px;
+    transition: all .15s ease-out;
+}
+
+#task-button-holder:hover{
+    left: 64%;
+    width: 36%;
 }
 
 #task-input{
@@ -47,11 +53,11 @@ body{
     font: italic 2em "Playfair Display";
     text-indent: 1em;
     border: none;
-    background: #ef7d7d;
+    background: #da7878;
     left: 0;
     right: 0;
     box-shadow: rgba(0, 0, 0, 0.16) 1px 1px 20px;
-    color: #f7f7f7;
+    color: #fff;
 }
 
 #task-input:focus{
@@ -59,7 +65,7 @@ body{
 }
 
 #task-input::-webkit-input-placeholder{
-    color: #f7f7f7;
+    color: #804a4a;
 }
 
 #task-list{
@@ -67,24 +73,20 @@ body{
     overflow-y: auto;
     left: 0;
     right: 0;
-    top: 10%;
+    top: 15%;
     position: absolute;
     color: grey;
     width: 100%;
-    height: 90vh;
+    height: 85%;
 }
 
 .task-list-items{
     height: 94px;
     margin: 0; 
-    font: 1.3em "Roboto Slab";
+    font: 1.3em "Roboto Condensed";
     left: 0;
     right: 0;
-    color: #f7f7f7;
-}
-
-.task-list-items:first-child{
-    margin-top: 40px;
+    color: #000;
 }
 
 #checkbox{
@@ -92,9 +94,14 @@ body{
     cursor: pointer;
     left: 85%;
     position: absolute;
-    color: #f7f7f7;
+    color: #fff;
     margin-top: 5px;
     margin: 0 auto;
+}
+
+.congrats {
+    color: white;
+    font-size: 1.5em;
 }
 
 #task-list::-webkit-scrollbar{

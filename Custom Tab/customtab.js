@@ -15,6 +15,7 @@ $(document).ready(function($) {
     var $rightArrow = $("#right-arrow");
     var $save = $("#save");
     var $confirm = $("#confirm");
+    var randTaskNum = Math.floor(Math.random() * 50) + 1;
 
     chrome.storage.sync.get('value', function(c) {
             taskArray = c.value;
@@ -23,34 +24,33 @@ $(document).ready(function($) {
                 for (var items in taskArray) {
                     $taskList.append("<p class='task-list-items'>" + taskArray[items] + "</p>"); // Appends tasks from chrome storage.  
                 }
+                switch (randTaskNum) {
+                    case 1:
+                        $taskList.append("<p class='task-list-items'>Stop to realise how awesome you are.</p>");
+                        break;
+                    case 2:
+                        $taskList.append("<p class='task-list-items'>Continue being a really super cool person.</p>");
+                        break;
+                    case 3:
+                        $taskList.append("<p class='task-list-items'>Keep being the best person we know.</p>");
+                        break;
+                }
                 $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); // Not cached otherwise errors.         
             } 
     });
 
     $taskList.on('click', '#checkbox', function() {
         $(this).hide().html("check_box").fadeIn('slow');
-        $(this).parent().css('opacity', '0.5');
+        $(this).parent().addClass("congrats");
+        $(this).parent().hide().fadeIn(200);
+        $(this).parent().contents().first().replaceWith("Nice.");
+        $(this).parent().delay(600).fadeOut(290, function() {
+            $(this).css({ "visibility": "hidden", display: 'block' }).slideUp(300, 'swing');
+        });
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
         taskArray[itemIndex] = undefined;
-        chrome.storage.sync.set({ 'value': taskArray });       
+        chrome.storage.sync.set({ 'value': taskArray });
     });
-
-    //$taskList.on('click', '#checkbox', function() {
-    //    if ($(this).hasClass("checked")) {
-    //        $(this).parent().css('opacity', '1');
-    //        $(this).hide().html("check_box_outline_blank").fadeIn('slow');
-
-    //        $(this).removeClass("checked");
-    //    } else {
-    //        $(this).hide().html("check_box").fadeIn('slow');
-    //        $(this).parent().css('opacity', '0.5');
-    //        var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
-    //        taskArray[itemIndex] = undefined;
-    //        chrome.storage.sync.set({ 'value': taskArray });
-
-    //        $(this).addClass("checked");
-    //    }
-    //});
 
     $leftArrow.on('click', function() {
         $("body").fadeOut(0.1, function() {$(this).fadeIn(0.1);});

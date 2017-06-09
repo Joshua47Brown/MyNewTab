@@ -24,7 +24,7 @@ text-transform: uppercase;
     top: 60%;
     left: 65%;
     right: 0;
-    color: rgb(169, 169, 169);
+    color: #524c4c;
     box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
     background: #ffffff;
 }
@@ -45,9 +45,14 @@ text-transform: uppercase;
     left: 15%;
     right: 0;
     box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
-    background: white;
+    background: #fff;
     border: 1px solid white;
     border-radius: 2px;
+    transition: all ease-in-out 0.2s;
+}
+
+#task-button-holder:hover{
+    transform: scale(1.01);
 }
 
 #task-input{
@@ -63,8 +68,8 @@ text-transform: uppercase;
     background: transparent;
     left: 0;
     right: 0;
-    font: 1.8em "Roboto Condensed";
-    color: #a6a6a6;
+    font: 1.8em "Droid Serif";
+    color: #524c4c;
 }
 
 #task-input:focus{
@@ -82,25 +87,21 @@ text-transform: uppercase;
     overflow-y: auto;
     left: 0;
     right: 0;
-    top: 55px;
+    top: 95px;
     position: absolute;
     color: grey;
     width: 450px;
-    height: 295px;
+    height: 255px;
 }
 
 .task-list-items{
     background-color: transparent;
     height: 54px;
     margin: 0; 
-    font: 1.5em 'Roboto Condensed';
+    font: 1.5em 'Droid Serif';
     left: 0;
     right: 0;
-    color: #a6a6a6;
-}
-
-.task-list-items:first-child{
-    margin-top: 25px;
+    color: #524c4c;
 }
 
 #checkbox{

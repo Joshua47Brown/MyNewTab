@@ -102,10 +102,6 @@ body{
     color: #ffba81;
 }
 
-.task-list-items:first-child{
-    margin-top: 20px;
-}
-
 #checkbox{
     width: 51px;
     cursor: pointer;
