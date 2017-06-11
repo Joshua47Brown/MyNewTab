@@ -7,6 +7,8 @@ body{
     margin: 0;
     padding: 0;
     background: #774545;
+    overflow: hidden;
+    transition: all 1s;
 }
 
 #greeting{
@@ -32,13 +34,13 @@ body{
 
 #task-button-holder{
     background: #a75f5f;
-    width: 35%;
+    width: 30%;
     height: 100vh;
     position: absolute;
-    left: 65%;
+    left: 70%;
     right: 0;
     box-shadow: rgba(0, 0, 0, 0.27) 1px 1px 20px 0px;
-    transition: all .15s ease-out;
+    transition: all 1s ease;
 }
 
 #task-button-holder:hover{
@@ -90,18 +92,27 @@ body{
 }
 
 #checkbox{
-    width: 51px;
+    width: 24px;
     cursor: pointer;
     left: 85%;
     position: absolute;
-    color: #fff;
+    color: #000;
     margin-top: 5px;
     margin: 0 auto;
+    transition: color .3s ease;
+}
+
+#checkbox:hover{
+    color: #fff;
 }
 
 .congrats {
     color: white;
     font-size: 1.5em;
+}
+
+.checked-color{
+    color: #fff;
 }
 
 #task-list::-webkit-scrollbar{

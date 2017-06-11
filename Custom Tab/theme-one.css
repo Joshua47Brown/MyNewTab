@@ -7,6 +7,8 @@ body{
     margin: 0;
     padding: 0;
     background: #e0e0e0;
+    overflow: hidden;
+    transition: all 1s;
 }
 
 #greeting{
@@ -14,8 +16,7 @@ body{
 }
 
 #date-and-time{
-text-transform: uppercase;
-    border: solid 3px rgba(247, 247, 247, 0);
+    text-transform: uppercase;
     border-radius: 2px;
     width: 200px;
     height: 150px;
@@ -27,6 +28,7 @@ text-transform: uppercase;
     color: #524c4c;
     box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
     background: #ffffff;
+    transition: all 1s ease;
 }
 
 #date{
@@ -46,13 +48,11 @@ text-transform: uppercase;
     right: 0;
     box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
     background: #fff;
-    border: 1px solid white;
     border-radius: 2px;
-    transition: all ease-in-out 0.2s;
 }
 
 #task-button-holder:hover{
-    transform: scale(1.01);
+
 }
 
 #task-input{
@@ -105,13 +105,16 @@ text-transform: uppercase;
 }
 
 #checkbox{
-    width: 51px;
     cursor: pointer;
     left: 83%;
     position: absolute;
     color: #a6a6a6;
-    margin-top: 5px;
     margin: 0 auto;
+    transition: color .3s ease;
+}
+
+#checkbox:hover{
+    color: #000;
 }
 
 #task-list::-webkit-scrollbar{
