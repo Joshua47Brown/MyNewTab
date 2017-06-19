@@ -6,7 +6,9 @@ body{
     user-select: none;
     margin: 0;
     padding: 0;
+    /*background: url("https://static.pexels.com/photos/408517/pexels-photo-408517.jpeg");*/
     background: #ffba81;
+    background-size: cover;
     overflow: hidden;
     transition: all 1s;
 }

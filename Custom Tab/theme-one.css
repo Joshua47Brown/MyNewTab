@@ -6,7 +6,7 @@ body{
     user-select: none;
     margin: 0;
     padding: 0;
-    background: #e0e0e0;
+    background: #928584;
     overflow: hidden;
     transition: all 1s;
 }
@@ -25,9 +25,9 @@ body{
     top: 60%;
     left: 65%;
     right: 0;
-    color: #524c4c;
-    box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
-    background: #ffffff;
+    color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.37) 1px 1px 20px;
+    background: #504141;
     transition: all 1s ease;
 }
 
@@ -46,30 +46,36 @@ body{
     position: absolute;
     left: 15%;
     right: 0;
-    box-shadow: rgba(0, 0, 0, 0.11) 1px 1px 20px;
-    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.37) 1px 1px 20px;
+    background: #504141;
     border-radius: 2px;
+    transition: all 1s ease;
 }
 
 #task-button-holder:hover{
-
+    top: 120px;
+    width: 450px;
+    height: 350px;
+    position: absolute;
+    left: 15%;
+    right: 0;
+    box-shadow: rgba(0, 0, 0, 0.37) 1px 1px 20px;
+    background: #504141;
+    border-radius: 2px;
 }
 
 #task-input{
-    border-radius: 2px;
     width: 450px;
     height: 50px;
     position: absolute;
-    top: 9px;
     text-indent: 1em;
     border: none;
-    border: solid 3px rgba(247, 247, 247, 0);
-    border-radius: 2px;
-    background: transparent;
-    left: 0;
-    right: 0;
-    font: 1.8em "Droid Serif";
-    color: #524c4c;
+    background: #2fb4d4;
+    letter-spacing: 3px;
+    font: 1.8em "Roboto Condensed";
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 2px 2px 0 0;
 }
 
 #task-input:focus{
@@ -77,7 +83,7 @@ body{
 }
 
 #task-input::-webkit-input-placeholder {
-    color: #cbcbcb;
+    color: #fff;
 }
 
 #task-list{
@@ -98,23 +104,27 @@ body{
     background-color: transparent;
     height: 54px;
     margin: 0; 
-    font: 1.5em 'Droid Serif';
+    font: 1.2em 'Droid Serif';
     left: 0;
     right: 0;
-    color: #524c4c;
+    color: #fff;
 }
 
 #checkbox{
     cursor: pointer;
     left: 83%;
     position: absolute;
-    color: #a6a6a6;
+    color: #2fb4d4;
     margin: 0 auto;
     transition: color .3s ease;
 }
 
 #checkbox:hover{
-    color: #000;
+    color: #fff;
+}
+
+.congrats {
+    font-size: 1.5em;
 }
 
 #task-list::-webkit-scrollbar{

@@ -6,7 +6,7 @@ body{
     user-select: none;
     margin: 0;
     padding: 0;
-    background-color: #d1d1d1;
+    background-color: #ffba81;
 }
 
 #title{
@@ -25,16 +25,16 @@ body{
     width: 750px;
     position: absolute;
     margin: 0 auto;
-    top: 25%;
+    top: 20%;
     left: 0;
     right: 0;
     text-align: center;
-    font: normal 26px "Cutive Mono";
-    color: grey;
+    font: normal 26px "Sue Ellen Francisco";
+    color: #aa784e;
 }
 
 #theme-switcher{
-    color: rgba(0, 0, 0, 0.10);
+    color: rgba(0, 0, 0, 0.70);
     left: 0;
     right: 0;
     text-align: center;
@@ -50,7 +50,7 @@ body{
 }
 
 #left-arrow:hover{
-    color: rgba(0, 0, 0, 0.30);
+    color: white;
 }
 
 #right-arrow{
@@ -60,24 +60,12 @@ body{
     cursor: pointer;
 }
 
-#right-arrow:target{
-
-}
-
 #right-arrow:hover{
-    color: rgba(0, 0, 0, 0.30);
+    color: white;
 }
 
 #save{
     visibility: hidden;
-    transition: color 0.1s ease;
-    -webkit-transition: color 0.1s ease;
-    -moz-transition: color 0.1s ease;
-    cursor: pointer;
-}
-
-#save:hover{
-    color: rgba(0, 0, 0, 0.30);
 }
 
 #confirm{

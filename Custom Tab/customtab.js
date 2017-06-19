@@ -40,6 +40,9 @@ $(document).ready(function($) {
     });
 
     $taskList.on('click', '#checkbox', function() {
+        var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
+        taskArray[itemIndex] = undefined;
+        chrome.storage.sync.set({ 'value': taskArray });
         $(this).addClass("checked-color");
         $(this).hide().html("check_box").fadeIn('slow');
         $(this).parent().addClass("congrats");
@@ -50,9 +53,6 @@ $(document).ready(function($) {
                 $(this).remove();
             });
         });
-        var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
-        taskArray[itemIndex] = undefined;
-        chrome.storage.sync.set({ 'value': taskArray });
     });
 
     $leftArrow.on('click', function() {
