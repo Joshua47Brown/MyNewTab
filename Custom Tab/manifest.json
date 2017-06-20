@@ -7,7 +7,7 @@
     "default_icon": "lacklogo1.png"
   },
   "chrome_url_overrides": {
-    "newtab": "customtab.html"
+    "newtab": "lack.html"
   },
   "description": "A simple, sleek alternative to the default new tab page.",
   "icons": {
