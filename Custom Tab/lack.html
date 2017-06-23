@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
     <head>
+        <script type="text/javascript" src="loadbg.js"></script>
         <link rel="stylesheet" type="text/css" href="lack.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Open+Sans" rel="stylesheet">
     </head>
-    <body>
+    <body>        
         <div id="date-and-time">
             <h1 id="date"></h1>
             <h1 id="time"></h1>
@@ -14,7 +15,16 @@
             <input id="task-input" type="text" spellcheck="false" maxlength="50" placeholder="What are today's tasks?"/>
                 <div id="task-list"></div>
         </div>
+
+        <div id="theme-switcher">
+            <i id="bg-changer" class="material-icons">photo</i>
+            <i id="left-arrow" class="material-icons">keyboard_arrow_left</i>
+            <i id="save" class="material-icons">save</i>
+            <i id="right-arrow" class="material-icons">keyboard_arrow_right</i>
+        </div>
+
         <script type="text/javascript" src="jquery-3.2.0.js"></script>
         <script type="text/javascript" src="lack.js"></script>
+
     </body>
 </html>

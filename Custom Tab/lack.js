@@ -1,5 +1,7 @@
 $(document).ready(function($) {
     //window.location.href = "welcome.html";
+    $('body').css('background-image, url("https://static.pexels.com/photos/408517/pexels-photo-408517.jpeg")');
+
     var taskArray;
     var $taskInput = $("#task-input");
     var $time = $("#time");
@@ -32,7 +34,7 @@ $(document).ready(function($) {
             $(this).css({ "visibility": "hidden", display: 'block' }).slideUp(300, 'swing'); // DO NOT remove items, otherwise the indexes mess up.
         });
     });
-
+    
     $taskInput.bind('keypress', function(e) {
         if (e.keyCode == 13) {
             var i = $taskInput.val();
@@ -47,6 +49,53 @@ $(document).ready(function($) {
             }
             
         }
+    });
+
+    $("#left-arrow").click(function() {
+        switch (page) {
+            case 1:
+                page = 4;
+                $('body').css({ 'background-image': 'url(green-hills.jpeg)' }); //hills
+                console.log(page);
+                break;
+            case 2:
+                page--;
+                $('body').css({ 'background-image': 'url(sea-sunset.jpg)' }); //original
+                console.log(page);
+                break;
+            case 3:
+                page--;
+                $('body').css({ 'background-image': 'url(forest-pool.jpg)' }); //forest
+                console.log(page);
+                break;
+                console.log(page);
+            case 4:
+                page--;
+                $('body').css({ 'background-image': 'url(orange-mountains.jpg)' }); //mountains
+                break;
+        }
+    });
+
+    $("#right-arrow").click(function() {
+        switch (page) {
+            case 1:
+                page++;
+                $('body').css({ 'background-image': 'url("forest-pool.jpg")' }); //forest
+                break;
+            case 2:
+                page++;
+                $('body').css({ 'background-image': 'url("orange-mountains.jpg")' }); //mountains
+                break;
+            case 3:
+                page++;
+                $('body').css({ 'background-image': 'url("green-hills.jpeg")' }); //hills
+                break;
+                console.log(page);
+            case 4:
+                page = 1;
+                $('body').css({ 'background-image': 'url("sea-sunset.jpg")' }); //original
+                break;
+        }   
     });
 
     function GetTimes() {
