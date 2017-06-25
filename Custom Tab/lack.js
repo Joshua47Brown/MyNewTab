@@ -1,6 +1,4 @@
 $(document).ready(function($) {
-    //window.location.href = "welcome.html";
-    $('body').css('background-image, url("https://static.pexels.com/photos/408517/pexels-photo-408517.jpeg")');
 
     var taskArray;
     var $taskInput = $("#task-input");
@@ -19,6 +17,13 @@ $(document).ready(function($) {
                 $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); // Not cached otherwise errors.         
             } 
     });
+
+    if (pn == bg) {
+        $("#save").html("done");
+    }
+    else {
+        $("#save").html("save");
+    }
 
     $taskList.on('click', '#checkbox', function() {
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
@@ -52,50 +57,64 @@ $(document).ready(function($) {
     });
 
     $("#left-arrow").click(function() {
-        switch (page) {
+        switch (bg) {
             case 1:
-                page = 4;
+                bg = 4;
                 $('body').css({ 'background-image': 'url(green-hills.jpeg)' }); //hills
-                console.log(page);
                 break;
             case 2:
-                page--;
+                bg--;
                 $('body').css({ 'background-image': 'url(sea-sunset.jpg)' }); //original
-                console.log(page);
                 break;
             case 3:
-                page--;
+                bg--;
                 $('body').css({ 'background-image': 'url(forest-pool.jpg)' }); //forest
-                console.log(page);
                 break;
-                console.log(page);
             case 4:
-                page--;
+                bg--;
                 $('body').css({ 'background-image': 'url(orange-mountains.jpg)' }); //mountains
                 break;
+        }
+        if (pn == bg) {
+            $("#save").html("done");
+        }
+        else {
+            $("#save").html("save");
         }
     });
 
     $("#right-arrow").click(function() {
-        switch (page) {
+        switch (bg) {
             case 1:
-                page++;
+                bg++;
                 $('body').css({ 'background-image': 'url("forest-pool.jpg")' }); //forest
                 break;
             case 2:
-                page++;
+                bg++;
                 $('body').css({ 'background-image': 'url("orange-mountains.jpg")' }); //mountains
                 break;
             case 3:
-                page++;
+                bg++;
                 $('body').css({ 'background-image': 'url("green-hills.jpeg")' }); //hills
                 break;
-                console.log(page);
             case 4:
-                page = 1;
+                bg = 1;
                 $('body').css({ 'background-image': 'url("sea-sunset.jpg")' }); //original
                 break;
-        }   
+        }
+        if (pn == bg) {
+            $("#save").html("done");
+        }
+        else {
+            $("#save").html("save");
+        }
+    });
+
+    $("#save").click(function() {
+        chrome.storage.sync.set({ "background": bg }, function() {
+            pn = bg;
+            $("#save").html("done");+
+        });
     });
 
     function GetTimes() {

@@ -6,7 +6,6 @@ body{
     user-select: none;
     margin: 0;
     padding: 0;
-    background: url("https://static.pexels.com/photos/408517/pexels-photo-408517.jpeg");
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
@@ -115,6 +114,7 @@ body{
     position: absolute;
     color: #000;
     transition: color .3s ease;
+
 }
 
 #checkbox:hover{
@@ -137,28 +137,43 @@ body{
     color: rgba(255, 255, 255, 0.3);
     left: 0;
     right: 0;
+    margin: 0 auto;
     text-align: center;
     position: absolute;   
     bottom: 1%;
-    transition: all 1s ease;
+    width: 100px;
 }
 
 #bg-changer{
-    visibility: hidden;
     position: absolute;
     left: 0;
     right: 0;
     text-align: center;
     z-index: 1;
     color: white;
+    width: 24px;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+#theme-switcher:hover #bg-changer{
+    opacity: 0;
+    z-index: -1;
+}
+
+#theme-switcher:hover #left-arrow{
+    opacity: 1;
+}
+
+#theme-switcher:hover #right-arrow{
+    opacity: 1;
 }
 
 #left-arrow{
-    transition: all 1s ease;
-    transition: color 0.1s ease;
-    -webkit-transition: color 0.1s ease;
-    -moz-transition: color 0.1s ease;
+    -webkit-transition: all 0.5s ease;
     cursor: pointer;
+    opacity: 0;
+    margin-left: -20px;
 }
 
 #left-arrow:hover{
@@ -166,11 +181,10 @@ body{
 }
 
 #right-arrow{
-    transition: all 1s ease;
-    transition: color 0.1s ease;
-    -webkit-transition: color 0.1s ease;
-    -moz-transition: color 0.1s ease;
+    -webkit-transition: all 0.5s ease;
     cursor: pointer;
+    opacity: 0;
+    margin-right: -20px;
 }
 
 #right-arrow:hover{
@@ -178,9 +192,9 @@ body{
 }
 
 #save{
-    transition: all 1s ease;
-    transition: color 0.1s ease;
-    -webkit-transition: color 0.1s ease;
-    -moz-transition: color 0.1s ease;
     cursor: pointer;
+}
+
+#save:hover{
+    color: white;
 }
