@@ -158,22 +158,27 @@ body{
 
 #theme-switcher:hover #bg-changer{
     opacity: 0;
+    transform: rotate(90deg);
     z-index: -1;
 }
 
 #theme-switcher:hover #left-arrow{
     opacity: 1;
+    letter-spacing: 12px;
 }
 
 #theme-switcher:hover #right-arrow{
     opacity: 1;
 }
 
+#theme-switcher:hover #save-vis{
+    transform: rotate(0deg);
+}
+
 #left-arrow{
-    -webkit-transition: all 0.5s ease;
+    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease;
     cursor: pointer;
     opacity: 0;
-    margin-left: -20px;
 }
 
 #left-arrow:hover{
@@ -181,10 +186,9 @@ body{
 }
 
 #right-arrow{
-    -webkit-transition: all 0.5s ease;
+    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease;
     cursor: pointer;
     opacity: 0;
-    margin-right: -20px;
 }
 
 #right-arrow:hover{
@@ -193,8 +197,17 @@ body{
 
 #save{
     cursor: pointer;
+    opacity: 0;
 }
 
-#save:hover{
-    color: white;
+#save-vis{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 24px;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+    transform: rotate(-90deg);
 }
+
+

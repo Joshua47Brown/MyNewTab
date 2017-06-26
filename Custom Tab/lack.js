@@ -19,10 +19,10 @@ $(document).ready(function($) {
     });
 
     if (pn == bg) {
-        $("#save").html("done");
+        $("#save-vis").html("done");
     }
     else {
-        $("#save").html("save");
+        $("#save-vis").html("save");
     }
 
     $taskList.on('click', '#checkbox', function() {
@@ -76,10 +76,10 @@ $(document).ready(function($) {
                 break;
         }
         if (pn == bg) {
-            $("#save").html("done");
+            $("#save-vis").html("done");
         }
         else {
-            $("#save").html("save");
+            $("#save-vis").html("save");
         }
     });
 
@@ -103,17 +103,17 @@ $(document).ready(function($) {
                 break;
         }
         if (pn == bg) {
-            $("#save").html("done");
+            $("#save-vis").html("done").fadeIn;
         }
         else {
-            $("#save").html("save");
+            $("#save-vis").html("save");
         }
     });
 
     $("#save").click(function() {
         chrome.storage.sync.set({ "background": bg }, function() {
             pn = bg;
-            $("#save").html("done");+
+            $("#save-vis").html("done");
         });
     });
 
