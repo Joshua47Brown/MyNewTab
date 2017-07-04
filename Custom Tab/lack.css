@@ -9,11 +9,11 @@ body{
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
-    transition: all 1s;
+    transition: all 0.75s ease;
 }
 
 #date-and-time{
-    top: 35%;
+    top: 32.5%;
     text-align: center;
     position: absolute;
     color: #fff;
@@ -26,8 +26,10 @@ body{
     position: absolute;
     text-align: center;
     left: 70%;
-    margin: 0;
     font: normal 35px 'Pathway Gothic One';
+    height: 90px;
+    line-height: 90px;
+    margin: 0;
 }
 
 #time{
@@ -38,11 +40,13 @@ body{
     left: 0;
     right: 0;
     font: normal 35px 'Pathway Gothic One';
+    height: 90px;
+    line-height: 90px;
 }
 
 #task-holder{
     width: 35%;
-    height: 10%;
+    height: 80px;
     top: 32.5%;
     position: absolute;
     left: 5%;
@@ -57,11 +61,17 @@ body{
     height: 100vh;
 }
 
+#task-holder:hover #task-input{
+    height: 35px;
+    top: 25%;
+}
+
 #task-holder:hover #task-list { 
     opacity: 1;
 }
 
 #task-input{
+    padding: 0;
     width: 100%;
     position: absolute;
     font: 30px "Pathway Gothic One";
@@ -107,14 +117,19 @@ body{
     color: #f7f7f7;
 }
 
-#checkbox{
-    width: 0;
-    cursor: pointer;
-    left: 80%;
-    position: absolute;
-    color: #000;
-    transition: color .3s ease;
+#checkbox.slip {
+    transform: rotate(0deg);
+}
 
+
+#checkbox{
+    cursor: pointer;
+    left: 90%;
+    position: absolute;
+    color: #fff;
+    transform: rotate(-90deg);
+    transition: color .3s ease, transform 0.2s ease;
+    text-indent: 0;
 }
 
 #checkbox:hover{
@@ -130,7 +145,7 @@ body{
 }
 
 #task-list::-webkit-scrollbar-thumb{
-	background: #fff;
+	background: rgba(255, 255, 255, 0.22);
 }
 
 #theme-switcher{
@@ -172,11 +187,12 @@ body{
 }
 
 #theme-switcher:hover #save-vis{
+    opacity: 1;
     transform: rotate(0deg);
 }
 
 #left-arrow{
-    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease;
+    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease, color 0.4s ease;
     cursor: pointer;
     opacity: 0;
 }
@@ -186,7 +202,7 @@ body{
 }
 
 #right-arrow{
-    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease;
+    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease, color 0.4s ease;
     cursor: pointer;
     opacity: 0;
 }
@@ -195,19 +211,22 @@ body{
     color: white;
 }
 
-#save{
-    cursor: pointer;
+#save-placeholder{
     opacity: 0;
 }
 
 #save-vis{
+    opacity: 0;
+    cursor: pointer;
     position: absolute;
     left: 0;
     right: 0;
     width: 24px;
     margin: 0 auto;
-    transition: all 0.4s ease;
     transform: rotate(-90deg);
+    transition: all 0.4s ease;
 }
 
-
+.white{
+    color: #fff;
+}

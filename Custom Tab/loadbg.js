@@ -1,20 +1,19 @@
 var bg;
+var pn;
 chrome.storage.sync.get("background", function(b) {
     bg = b.background;
     pn = b.background;
     if (bg == null) { bg = 1; }
+    if (pn == null) { pn = 1; }
     switch (b.background) {
         case 1:
-            document.body.style.backgroundImage = "url('sea-sunset.jpg')";
+            document.body.style.backgroundImage = "url(images/red-bridge.jpg)";
             break;
         case 2:
-            document.body.style.backgroundImage = "url('forest-pool.jpg')";
+            document.body.style.backgroundImage = "url(images/green-hills.jpeg)";
             break;
         case 3:
-            document.body.style.backgroundImage = "url('orange-mountains.jpg')";
-            break;
-        case 4:
-            document.body.style.backgroundImage = "url('green-hills.jpeg')";
+            document.body.style.backgroundImage = "url(images/blue-lake.jpeg)";
             break;
     }
 });

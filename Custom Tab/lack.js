@@ -19,25 +19,22 @@ $(document).ready(function($) {
     });
 
     if (pn == bg) {
-        $("#save-vis").html("done");
+        $("#save-vis").addClass("white");
     }
     else {
-        $("#save-vis").html("save");
+        $("#save-vis").removeClass("white");
     }
 
     $taskList.on('click', '#checkbox', function() {
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
         taskArray[itemIndex] = undefined;
         chrome.storage.sync.set({ 'value': taskArray });
-        console.log(taskArray);
-        $(this).addClass("checked-color");
-        $(this).hide().html("check_box").fadeIn('slow');
-        $(this).parent().addClass("congrats");
-        $(this).parent().hide().fadeIn(200);
-        $(this).parent().contents().first().replaceWith("Nice.");
+        $(this).addClass('slip');
+        $(this).html('check_box');
         $(this).parent().delay(600).fadeOut(290, function() {
             $(this).css({ "visibility": "hidden", display: 'block' }).slideUp(300, 'swing'); // DO NOT remove items, otherwise the indexes mess up.
         });
+
     });
     
     $taskInput.bind('keypress', function(e) {
@@ -59,27 +56,23 @@ $(document).ready(function($) {
     $("#left-arrow").click(function() {
         switch (bg) {
             case 1:
-                bg = 4;
-                $('body').css({ 'background-image': 'url(green-hills.jpeg)' }); //hills
+                bg = 3;
+                $('body').css({ 'background-image': 'url(images/blue-lake.jpeg)' });
                 break;
             case 2:
                 bg--;
-                $('body').css({ 'background-image': 'url(sea-sunset.jpg)' }); //original
+                $('body').css({ 'background-image': 'url(images/red-bridge.jpg)' });
                 break;
             case 3:
                 bg--;
-                $('body').css({ 'background-image': 'url(forest-pool.jpg)' }); //forest
-                break;
-            case 4:
-                bg--;
-                $('body').css({ 'background-image': 'url(orange-mountains.jpg)' }); //mountains
+                $('body').css({ 'background-image': 'url(images/green-hills.jpeg)' }); 
                 break;
         }
         if (pn == bg) {
-            $("#save-vis").html("done");
+            $("#save-vis").addClass("white");
         }
         else {
-            $("#save-vis").html("save");
+            $("#save-vis").removeClass("white");
         }
     });
 
@@ -87,33 +80,31 @@ $(document).ready(function($) {
         switch (bg) {
             case 1:
                 bg++;
-                $('body').css({ 'background-image': 'url("forest-pool.jpg")' }); //forest
+                $('body').css({ 'background-image': 'url(images/green-hills.jpeg)' });
                 break;
             case 2:
                 bg++;
-                $('body').css({ 'background-image': 'url("orange-mountains.jpg")' }); //mountains
+                $('body').css({ 'background-image': 'url(images/blue-lake.jpeg)' });
                 break;
             case 3:
-                bg++;
-                $('body').css({ 'background-image': 'url("green-hills.jpeg")' }); //hills
-                break;
-            case 4:
                 bg = 1;
-                $('body').css({ 'background-image': 'url("sea-sunset.jpg")' }); //original
+                $('body').css({ 'background-image': 'url(images/red-bridge.jpg)' }); 
                 break;
+
+
         }
         if (pn == bg) {
-            $("#save-vis").html("done").fadeIn;
+            $("#save-vis").addClass("white");
         }
         else {
-            $("#save-vis").html("save");
+            $("#save-vis").removeClass("white");
         }
     });
 
-    $("#save").click(function() {
+    $("#save-vis").click(function() {
+        $("#save-vis").addClass("hidden");
         chrome.storage.sync.set({ "background": bg }, function() {
             pn = bg;
-            $("#save-vis").html("done");
         });
     });
 
