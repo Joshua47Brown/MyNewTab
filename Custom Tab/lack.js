@@ -5,36 +5,37 @@ $(document).ready(function($) {
     var $time = $("#time");
     var $date = $("#date");
     var $taskList = $("#task-list");
+    var $saveVis = $("#save-vis");
+    var $body = $("body");
+    var $leftArrow = $("#left-arrow")
+    var $rightArrow = $("#right-arrow");
 
     chrome.storage.sync.get('value', function(c) {
             taskArray = c.value;
             if (taskArray != null) {
                 taskArray = taskArray.filter(Boolean);
-                console.log(taskArray);
                 for (var items in taskArray) {
                     $taskList.append("<p class='task-list-items'>" + taskArray[items] + "</p>"); // Appends tasks from chrome storage.  
                 }
                 $("p.task-list-items").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>"); // Not cached otherwise errors.         
             } 
     });
-
     if (pn == bg) {
-        $("#save-vis").addClass("white");
+        $saveVis.addClass("white");
     }
     else {
-        $("#save-vis").removeClass("white");
+        $saveVis.removeClass("white expand");
     }
 
     $taskList.on('click', '#checkbox', function() {
         var itemIndex = $(this).parent().index(); // Gets the number of the element in the task list on clicked.
         taskArray[itemIndex] = undefined;
         chrome.storage.sync.set({ 'value': taskArray });
-        $(this).addClass('slip');
+        $(this).addClass('animation');
         $(this).html('check_box');
         $(this).parent().delay(600).fadeOut(290, function() {
             $(this).css({ "visibility": "hidden", display: 'block' }).slideUp(300, 'swing'); // DO NOT remove items, otherwise the indexes mess up.
         });
-
     });
     
     $taskInput.bind('keypress', function(e) {
@@ -47,62 +48,64 @@ $(document).ready(function($) {
                 $("p.task-list-items:last").append("<i class='material-icons' id='checkbox'>check_box_outline_blank</i>");
                 $taskInput.val("");
                 chrome.storage.sync.set({ 'value': taskArray });
-                console.log(taskArray);
-            }
-            
+            }           
         }
     });
 
-    $("#left-arrow").click(function() {
+    $leftArrow.click(function() {
         switch (bg) {
             case 1:
                 bg = 3;
-                $('body').css({ 'background-image': 'url(images/blue-lake.jpeg)' });
+                $body.css({ 'background-image': 'url(images/blue-lake.jpeg)' });
                 break;
             case 2:
                 bg--;
-                $('body').css({ 'background-image': 'url(images/red-bridge.jpg)' });
+                $body.css({ 'background-image': 'url(images/red-bridge.jpg)' });
                 break;
             case 3:
                 bg--;
-                $('body').css({ 'background-image': 'url(images/green-hills.jpeg)' }); 
+                $body.css({ 'background-image': 'url(images/green-hills.jpeg)' }); 
                 break;
         }
         if (pn == bg) {
-            $("#save-vis").addClass("white");
+            $saveVis.addClass("white");
         }
         else {
-            $("#save-vis").removeClass("white");
+            $saveVis.removeClass("white expand");
         }
     });
 
-    $("#right-arrow").click(function() {
+    $rightArrow.click(function() {
         switch (bg) {
             case 1:
                 bg++;
-                $('body').css({ 'background-image': 'url(images/green-hills.jpeg)' });
+                $body.css({ 'background-image': 'url(images/green-hills.jpeg)' });
                 break;
             case 2:
                 bg++;
-                $('body').css({ 'background-image': 'url(images/blue-lake.jpeg)' });
+                $body.css({ 'background-image': 'url(images/blue-lake.jpeg)' });
                 break;
             case 3:
                 bg = 1;
-                $('body').css({ 'background-image': 'url(images/red-bridge.jpg)' }); 
+                $body.css({ 'background-image': 'url(images/red-bridge.jpg)' }); 
                 break;
 
 
         }
         if (pn == bg) {
-            $("#save-vis").addClass("white");
+            $saveVis.addClass("white");
         }
         else {
-            $("#save-vis").removeClass("white");
+            $saveVis.removeClass("white expand");
         }
     });
 
-    $("#save-vis").click(function() {
-        $("#save-vis").addClass("hidden");
+    $saveVis.click(function() {
+        $saveVis.addClass("white expand");
+        $saveVis.one('webkitAnimationEnd animationend',
+        function() {
+            $saveVis.removeClass('expand');
+        });
         chrome.storage.sync.set({ "background": bg }, function() {
             pn = bg;
         });

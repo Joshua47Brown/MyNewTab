@@ -22,26 +22,24 @@ body{
 
 #date{
     text-transform: uppercase;
-    letter-spacing: 3px;
     position: absolute;
     text-align: center;
     left: 70%;
-    font: normal 35px 'Pathway Gothic One';
-    height: 90px;
-    line-height: 90px;
+    font: normal 35px 'Quicksand';
+    height: 80px;
+    line-height: 80px;
     margin: 0;
 }
 
 #time{
-    letter-spacing: 3px;
     position: absolute;
     text-align: center;
     margin: 0;
     left: 0;
     right: 0;
-    font: normal 35px 'Pathway Gothic One';
-    height: 90px;
-    line-height: 90px;
+    font: normal 35px 'Quicksand';
+    height: 80px;
+    line-height: 80px;
 }
 
 #task-holder{
@@ -54,11 +52,13 @@ body{
     background: rgba(247, 247, 247, 0.14);
     transition: 1s all;
     overflow: hidden;
+    border-radius: 3px;
 }
 
 #task-holder:hover{
     top: 0%;
     height: 100vh;
+    border-radius: 0px;
 }
 
 #task-holder:hover #task-input{
@@ -70,12 +70,15 @@ body{
     opacity: 1;
 }
 
+#task-holder:hover #checkbox{
+    transform: translateX(0px) rotate(-90deg);
+}
+
 #task-input{
     padding: 0;
     width: 100%;
     position: absolute;
-    font: 30px "Pathway Gothic One";
-    letter-spacing: 3px;
+    font: italic 28px "Quicksand";
     text-indent: 1em;
     border: none;
     background: transparent;
@@ -117,19 +120,27 @@ body{
     color: #f7f7f7;
 }
 
-#checkbox.slip {
-    transform: rotate(0deg);
+#task-holder.slip {
+    transform: rotate(36deg);
 }
 
+#checkbox.rotate{
+    transform: rotate(-90deg);
+}
 
 #checkbox{
     cursor: pointer;
     left: 90%;
     position: absolute;
     color: #fff;
-    transform: rotate(-90deg);
-    transition: color .3s ease, transform 0.2s ease;
     text-indent: 0;
+    transform: translateX(100px) rotate(90deg);
+    transition: color .3s ease, transform 1s ease;
+}
+
+#checkbox.animation  {
+    animation: SHW .2s;
+    animation-fill-mode: both
 }
 
 #checkbox:hover{
@@ -169,6 +180,7 @@ body{
     width: 24px;
     margin: 0 auto;
     transition: all 0.4s ease;
+    color: rgba(225,255,255,0.3);
 }
 
 #theme-switcher:hover #bg-changer{
@@ -179,11 +191,12 @@ body{
 
 #theme-switcher:hover #left-arrow{
     opacity: 1;
-    letter-spacing: 12px;
+    transform: translateX(-20px);
 }
 
 #theme-switcher:hover #right-arrow{
     opacity: 1;
+    transform: translateX(20px);
 }
 
 #theme-switcher:hover #save-vis{
@@ -191,24 +204,22 @@ body{
     transform: rotate(0deg);
 }
 
-#left-arrow{
-    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease, color 0.4s ease;
+#left-arrow:hover, #right-arrow:hover{
+    color: white;
+}
+
+#left-arrow, #right-arrow{
+    -webkit-transition: letter-spacing 0.5s ease, opacity 0.7s ease, color 0.4s ease, transform 0.4s ease;
     cursor: pointer;
     opacity: 0;
 }
 
-#left-arrow:hover{
-    color: white;
+#left-arrow{
+        transform: translateX(20px);
 }
 
 #right-arrow{
-    -webkit-transition: letter-spacing 0.5s ease, opacity 0.2s ease, color 0.4s ease;
-    cursor: pointer;
-    opacity: 0;
-}
-
-#right-arrow:hover{
-    color: white;
+    transform: translateX(-20px);
 }
 
 #save-placeholder{
@@ -227,6 +238,24 @@ body{
     transition: all 0.4s ease;
 }
 
-.white{
+#save-vis:hover{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#save-vis.white{
     color: #fff;
+}
+
+.expand{
+    animation: saved 0.3s;
+    animation-fill-mode: both
+}
+
+@keyframes SHW {
+    100%{transform: rotate(0deg);}
+}
+
+@keyframes saved {
+    50%{transform: scale(1.15);}
+    100%{ transform: scale(1) translateX(0);}
 }
