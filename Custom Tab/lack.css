@@ -1,15 +1,11 @@
 body{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     margin: 0;
     padding: 0;
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
-    transition: all 0.75s ease;
+    transition: all 0.5s ease;
 }
 
 #date-and-time{
@@ -42,28 +38,35 @@ body{
     line-height: 80px;
 }
 
-#task-holder{
+#slider{
+    z-index: -1;
+    position: absolute;
+    background: rgba(247, 247, 247, 0.14);
     width: 35%;
     height: 80px;
-    top: 32.5%;
-    position: absolute;
     left: 5%;
-    right: 0;
-    background: rgba(247, 247, 247, 0.14);
-    transition: 1s all;
-    overflow: hidden;
+    top: 32.5%; 
+    transition: 1.5s all;
     border-radius: 3px;
 }
 
-#task-holder:hover{
-    top: 0%;
-    height: 100vh;
-    border-radius: 0px;
+#task-holder{
+    z-index: 0;
+    transform: translateY(32.5vh);
+    width: 35%;
+    height: 80px;
+    position: absolute;
+    left: 5%;
+    transition: all 1s;
 }
 
-#task-holder:hover #task-input{
-    height: 35px;
-    top: 25%;
+#task-holder:hover{
+    height: 100%;
+    transform: translateY(0);
+}
+
+#task-holder:hover ~ #slider{
+    transform: scaleY(50);
 }
 
 #task-holder:hover #task-list { 
@@ -74,19 +77,21 @@ body{
     transform: translateX(0px) rotate(-90deg);
 }
 
+#task-holder:hover #task-input{
+    transform: translateY(25vh);
+}
+
 #task-input{
-    padding: 0;
+    height: 80px;
     width: 100%;
     position: absolute;
     font: italic 28px "Quicksand";
     text-indent: 1em;
     border: none;
     background: transparent;
-    top: 25%;
-    left: 0;
-    right: 0;
     color: #fff; 
     text-transform: uppercase;
+    transition: all 1s ease;
 }
 
 #task-input:focus{
@@ -100,27 +105,22 @@ body{
 #task-list{
     opacity: 0;
     text-indent: 6%;
-    overflow-y: auto;
-    left: 0;
-    right: 0;
-    top: 40%;
+    overflow-y: auto;    
+    transform: translateY(70%);
     position: absolute;
-    color: grey;
     width: 100%;
     height: 60vh;
-    transition: opacity ease .3s;
+    transition: opacity ease 0.5s;
 }
 
 .task-list-items{
     height: 94px;
     margin: 0; 
     font: 1.3em 'Open Sans';
-    left: 0;
-    right: 0;
     color: #f7f7f7;
 }
 
-#task-holder.slip {
+#task-holder.slip{
     transform: rotate(36deg);
 }
 
@@ -132,26 +132,18 @@ body{
     cursor: pointer;
     left: 90%;
     position: absolute;
-    color: #fff;
     text-indent: 0;
-    transform: translateX(100px) rotate(90deg);
-    transition: color .3s ease, transform 1s ease;
+    transform: rotate(170deg);
+    transition: color 0.3s ease, transform 1s ease;
 }
 
-#checkbox.animation  {
+#checkbox.animation{
     animation: SHW .2s;
     animation-fill-mode: both
 }
 
-#checkbox:hover{
-    color: #fff;
-}
-
 #task-list::-webkit-scrollbar{
-    margin-left: 300px;
-    position: absolute;
 	width: 12px;
-    height: 0;
 	background: transparent;
 }
 
@@ -209,13 +201,13 @@ body{
 }
 
 #left-arrow, #right-arrow{
-    -webkit-transition: letter-spacing 0.5s ease, opacity 0.7s ease, color 0.4s ease, transform 0.4s ease;
+    transition: letter-spacing 0.5s ease, opacity 0.3s ease, color 0.4s ease, transform 0.4s ease;
     cursor: pointer;
     opacity: 0;
 }
 
 #left-arrow{
-        transform: translateX(20px);
+    transform: translateX(20px);
 }
 
 #right-arrow{
@@ -252,10 +244,10 @@ body{
 }
 
 @keyframes SHW {
-    100%{transform: rotate(0deg);}
+    100%{transform: rotate(0deg)}
 }
 
 @keyframes saved {
-    50%{transform: scale(1.15);}
-    100%{ transform: scale(1) translateX(0);}
+    50% {transform: scale(1.15);}
+    100% {transform: scale(1)}
 }

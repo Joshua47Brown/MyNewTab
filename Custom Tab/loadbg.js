@@ -5,15 +5,18 @@ chrome.storage.sync.get("background", function(b) {
     pn = b.background;
     if (bg == null) { bg = 1; }
     if (pn == null) { pn = 1; }
-    switch (b.background) {
+    switch (bg) {
         case 1:
-            document.body.style.backgroundImage = "url(images/red-bridge.jpg)";
+            document.body.style.backgroundImage = "url(images/hue-mountains.jpeg)";
             break;
         case 2:
-            document.body.style.backgroundImage = "url(images/green-hills.jpeg)";
+            document.body.style.backgroundImage = "url(images/mountains.jpeg)";
             break;
         case 3:
-            document.body.style.backgroundImage = "url(images/blue-lake.jpeg)";
+            document.body.style.backgroundImage = "url(images/shore.jpeg)";
+            break;
+        case 4:
+            document.body.style.backgroundImage = "url(images/sky.jpeg)";
             break;
     }
 });
